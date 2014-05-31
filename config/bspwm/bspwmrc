@@ -70,7 +70,7 @@ fi
 /home/makpoc/.config/bspwm/panel/panel dzen2 &
 
 # every icon takes around 20 pixels
-trayer --edge top --align right --height 16 --alpha 0 --tint 0x34322E --transparent true --widthtype pixel --expand false --monitor primary --width 125 &
+trayer --edge top --align right --height 16 --alpha 0 --tint 0x34322E --transparent true --widthtype pixel --expand false --monitor primary --width 129 &
 unclutter -idle 5 -noevents -root &
 fbxkb & # icon
 volumeicon & # icon

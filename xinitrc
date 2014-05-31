@@ -6,7 +6,7 @@ xset +fp /usr/share/fonts/local
 xset +fp ~/.fonts
 xset fp rehash
 
-(/usr/bin/xrandr --output VGA1 --mode 1680x1050 && /usr/bin/xrandr --output HDMI1 --mode 1920x1080 && /usr/bin/xrandr --output HDMI1 --rotate left --right-of VGA1) &&  nitrogen --restore &
+(/usr/bin/xrandr --output VGA1 --mode 1920x1080 && /usr/bin/xrandr --output HDMI1 --mode 1920x1080 && /usr/bin/xrandr --output HDMI1 --rotate left --right-of VGA1) &&  nitrogen --restore &
 
 [[ -f ~/.Xdefaults ]] && xrdb -load ~/.Xdefaults
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources

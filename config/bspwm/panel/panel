@@ -31,7 +31,7 @@ case "$flavor" in
         PANEL_HEIGHT=16
         FONT_FAMILY='DejaVu Sans'
         FONT_SIZE=11
-        PANEL_WIDTH=1555
+        PANEL_WIDTH=1790
         cat "$PANEL_FIFO" | ./panel_dzen2 -w $PANEL_WIDTH -f "$FONT_FAMILY" -s "$FONT_SIZE" | dzen2 -h $PANEL_HEIGHT -dock -x 0 -y 0 -w $PANEL_WIDTH -ta l -title-name "panel" -fn "${FONT_FAMILY}:pixelsize=${FONT_SIZE}" -fg "$COLOR_FOREGROUND" -bg "$COLOR_BACKGROUND"
         ;;
 esac
