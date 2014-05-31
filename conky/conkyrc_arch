@@ -1,0 +1,42 @@
+#avoid flicker
+#double_buffer yes
+
+#own window to run simultanious 2 or more conkys
+own_window  yes
+#own_window_transparent yes
+#own_window_type override
+own_window_hints undecorate,sticky,above,skip_taskbar,skip_pager 
+
+#borders
+draw_borders no
+
+#shades
+draw_shades no
+
+#position
+gap_x 395
+gap_y -5
+alignment tl
+
+#behaviour
+update_interval 86400
+
+#colour
+#own_window_colour 262626
+color1 87CEFA
+
+#font
+use_xft yes
+xftfont bauhaus:pixelsize=10
+
+#to prevent window from moving
+use_spacer none
+minimum_size 12 0
+#text_buffer_size 1600
+
+#mpd
+#mpd_host localhost
+#mpd_port 6600
+
+TEXT
+${voffset 5}${color1}${font OpenLogos:size=18}B

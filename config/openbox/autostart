@@ -1,0 +1,32 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+
+# If you want to use GNOME config tools...
+#
+#if test -x /usr/lib/openbox/gnome-settings-daemon >/dev/null; then
+#  /usr/lib/openbox/gnome-settings-daemon &
+#elif which gnome-settings-daemon >/dev/null 2>&1; then
+#  gnome-settings-daemon &
+#fi
+
+# If you want to use XFCE config tools...
+#
+#xfce-mcs-manager &
+# Setup two displays -  http://bbs.archbang.org/viewtopic.php?pid=6251#p6251
+#(/usr/bin/xrandr --output VGA1 --mode 1680x1050 && /usr/bin/xrandr --output HDMI1 --mode 1920x1080 && /usr/bin/xrandr --output HDMI1 --rotate left --right-of VGA1) &&  nitrogen --restore &
+tint2 &
+volumeicon &
+fbxkb &
+urxvt -geometry 239x76+0+28 -T "GNU Screen" -e screen -R default-session &
+skype &
+pidgin &
+firefox &
+thunderbird &
+liferea &
+sleep 2
+conky -qc ~/.conkyrc &
+conky -qc ~/.conkyrc_arch &
+unclutter -idle 5 -noevents -root &

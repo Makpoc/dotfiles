@@ -1,0 +1,82 @@
+#!/bin/bash
+
+bspc monitor VGA1 -d term web java python chat mail feeds viii ix
+bspc monitor HDMI1 -d buffer ii iii iv v
+
+# Configure both monitors at the same time
+desktop_config() {
+    bspc config $1 $2
+    for M in $(bspc query -M); do
+        bspc config -m $M $1 $2
+    done
+}
+
+#for monitor in $(bspc query -M); do
+#    bspc monitor $monitor \
+#            -d {term,web,java,python,chat,vi,vii,viii,ix,x}
+#done
+
+# TODO - check the format for this tree
+if [ -e "$BSPWM_TREE" ] ; then
+    bspc restore -T "$BSPWM_TREE" -H "$BSPWM_HISTORY" -S "$BSPWM_STACK"
+    rm "$BSPWM_TREE" "$BSPWM_HISTORY" "$BSPWM_STACK"
+fi
+
+#bspc monitor VGA1 - dzen2 is there
+bspc config -m VGA1 top_padding 14
+
+# Visual options (for all monitors)
+desktop_config split_ratio 0.50
+desktop_config border_width 1
+desktop_config window_gap 4
+desktop_config borderless_monocle true
+desktop_config gapless_monocle true
+desktop_config focus_follows_pointer false
+desktop_config auto_alternate true
+desktop_config auto_cancel true
+desktop_config normal_border_color "#504339"
+desktop_config active_border_color "#504339"
+desktop_config focused_border_color "#fdf6e3"
+desktop_config presel_border_color "#2aa198"
+desktop_config urgent_border_color "#d70000"
+desktop_config focused_locked_border_color "#cb4b16"
+desktop_config normal_frame_opacity 0.0
+desktop_config focused_frame_opacity 0.2
+
+
+# Rules
+#bspc rule -a Skype pseudo_tiled=on desktop=chat
+bspc rule -a Skype desktop=chat
+bspc rule -a Pidgin desktop=chat
+bspc rule -a Firefox desktop=web
+bspc rule -a Thunderbird desktop=mail
+bspc rule -a Liferea desktop=feeds
+#bspc rule -a Conky sticky=on manage=off lower=on
+#bspc rule -a astime sticky=on
+bspc rule -a feh floating=on manage=off
+
+
+#desktop_config border_width 2
+#desktop_config window_gap 4
+#
+#bspc config split_ratio 0.52
+#bspc config borderless_monocle true
+#bspc config gapless_monocle true
+
+if [ $(pgrep -cx panel) -gt 1 ] ; then
+    pkill panel
+fi
+
+/home/makpoc/.config/bspwm/panel/panel dzen2 &
+
+# every icon takes around 20 pixels
+trayer --edge top --align right --height 16 --alpha 0 --tint 0x34322E --transparent true --widthtype pixel --expand false --monitor primary --width 125 &
+unclutter -idle 5 -noevents -root &
+fbxkb & # icon
+volumeicon & # icon
+skype & # icon
+pidgin & # icon
+liferea & # icon
+thunderbird &
+firefox &
+shutter & # icon

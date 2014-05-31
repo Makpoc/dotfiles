@@ -1,0 +1,5 @@
+! swap 8 and 9 button
+! see mapping using xmodmap -pp
+! see button numbers using xev | grep button
+! global Xmodmap -> /etc/X11/Xmodmap
+pointer = 1 2 3 4 5 6 7 9 8 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24

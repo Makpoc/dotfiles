@@ -1,0 +1,147 @@
+#
+# bspwm hotkeys
+#
+
+# Quit BSPWM
+super + alt + Escape
+    bspc quit
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# Restoring the windows produces strange wholes.. TODO
+#super + alt + {_,shift + }Escape
+#    {bspc query -T > "$BSPWM_TREE"; \
+#    bspc query -H > "$BSPWM_HISTORY"; \
+#    bspc quit,\
+#    bspc quit 1}
+
+# Close/kill the current window
+super + shift + Q
+	bspc window -c
+
+# Change window gap
+super + {minus,equal}
+    bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2))
+
+# Balance the split rations of window
+super + b
+	bspc desktop -B
+
+# Toggle floating/fullscreen for the focused window
+super + {s,f}
+	bspc window -t {floating,fullscreen}
+
+# focus the last window/desktop
+super + {grave,Tab}
+	bspc {window,desktop} -f last
+
+# Swap this windows with the last focused
+super + apostrophe
+	bspc window -s last
+
+# Cycle through the focus history, without adding new entries in it
+# See bspc query -H for history details
+super + {o,i}
+	bspc control --record-history off; \
+	bspc window {older,newer} -f; \
+	bspc control --record-history on
+
+# Cycle through the focus history similar to above.
+# Stays on the same desktop
+super + {_,shift + }c
+	bspc window -f {next,prev}
+
+#super + m
+#	bspc window -s biggest
+
+# focus/move the focused window to to the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc window -{f,s} {left,down,up,right}
+
+# Rotate the windows 90 degrees in any direction
+super + {comma,period}
+	bspc desktop -R {90,270}
+
+# focus left/right monitor
+super + bracket{left,right}
+    bspc monitor -f {left,right}
+
+# move window to left/right monitor
+super + shift + bracket{left,right}
+    bspc window --to-monitor {left,right}
+
+# Goes back and forward in over the occupied desktops on the current Monitor
+super + {p,n}
+	bspc desktop -f {prev.occupied,next.occupied}
+
+# Presel window for splitting
+super + ctrl + {h,j,k,l}
+	bspc window -p {left,down,up,right}
+
+# Move window into presel position
+super + ctrl + {a,s,d,f}
+    bspc window -w {left,down,up,right}
+
+super + ctrl + {_,shift + }space
+	bspc {window -p cancel,desktop -c}
+
+# resize the current window
+super + alt + {h,j,k,l}
+	bspc window -e {left -10,down +10,down -10,left +10}
+
+#super + alt + shift + {h,j,k,l}
+#	bspc window -e {right -10,up +10,down -10,left +10}
+
+# Sets the splitting ration of the selected window (0<Ratio<1)
+super + ctrl + {1-9}
+	bspc window -r 0.{1-9}
+
+# Select the desktop on the current monitor
+super + {1-9,0}
+	bspc desktop $(bspc query -M -m):^{1-9,10} -f
+
+# Select the desktop on the other monitor (dual monitor setup only!)
+super + {q,w,e,r,t,y,u,i}
+	bspc desktop $(bspc query -M | command grep -v $(bspc query -M -m)):^{1,2,3,4,5,6,7,8} -f
+
+# Move window from one desktop to another within the same monitor
+super + shift {1-9,0}
+	bspc window -d $(bspc query -M -m):^{1-9,10}
+
+# -g means grab.
+~button1
+	bspc pointer -g focus
+
+super + button{1-3}
+	bspc pointer -g {move,resize_side,resize_corner}
+
+# -t means track.. TODO
+super + !button{1-3}
+	bspc pointer -t %i %i
+
+# -u is "ungrab".. TODO
+super + @button{1-3}
+	bspc pointer -u
+
+#
+# wm independent hotkeys
+#
+
+# Start terminal
+super + Return
+	urxvt
+
+# Start launcher
+super + d
+	dmenu_run_recent -b
+
+# Start finder for ~/git/st
+super + shift + d
+	sh /home/makpoc/scripts/finder
+
+#
+# Lock the screen
+ctrl + alt + l
+    xscreensaver-command -lock

@@ -1,0 +1,48 @@
+#avoid flicker
+double_buffer yes
+
+#own window to run simultanious 2 or more conkys
+own_window  yes
+#own_window_type override
+own_window_hints undecorate,above,sticky,skip_taskbar,skip_pager 
+maximum_width 995
+
+#borders
+draw_borders no
+#border_margin 1
+
+#shades
+draw_shades no
+
+#position
+gap_x 425
+gap_y 2
+alignment tl
+
+#behaviour
+update_interval 1
+
+#colour
+#default_color  9f9f9f
+#default_shade_color 000000
+own_window_colour 262626
+#own_window_transparent yes
+# blue
+color1 87CEFA
+
+#font
+use_xft yes
+xftfont bauhaus:pixelsize=10
+
+#to prevent window from moving
+use_spacer yes
+minimum_size 1680 0
+#text_buffer_size 1600
+
+#mpd
+#mpd_host localhost
+#mpd_port 6600
+
+TEXT
+${voffset -1}${nodename} ${color1}~${color} Kernel: ${color1}$kernel${color} || Uptime: ${color1} $uptime ${color} || CPU: ${color1} ${cpu}%${goto 370} @$freq MHz ${voffset 1}${cpugraph 8,40 }${color}  ${voffset -1}|| Mem: ${color1}$mem ${color}/ ${color1}$memmax${color} - ${color1}$memperc% ${voffset 1}${memgraph 8,40}${color} ${voffset -1} || Swap: ${color1}$swap ${color}/${color1} $swapmax${color} - ${color1}$swapperc% ${voffset 1} ${swapbar 6,60}
+${color}Root: ${color1}${fs_used /} ${color}/ ${color1}${fs_size /}  ${voffset 1}${fs_bar 6,60 /}   ${voffset -1}${color} ||  Home: ${color1}${fs_used /home} ${color}/ ${color1}${fs_size /home}  ${voffset 1}${fs_bar 6,60 /home}  ||  Network: ${color} ▴  ${color1}${upspeed enp0s25}/s ${goto 530}${upspeedgraph enp0s25 8,60} ${voffset -1}${color} ${color} ▾  ${color1}${downspeed enp0s25}/s ${goto 675}${downspeedgraph enp0s25  8,60 ${color} ${color1}}${color}  ${voffset -1}||  ${color}Local IP: ${color1}${addr enp0s25} ${color} ||  Arch-pkg: ${color1}${execi 300 ~/.conky_scripts/new_packages.py}

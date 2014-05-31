@@ -1,0 +1,57 @@
+# remote sessions
+alias therapy='ssh root@therapy'
+alias app1='ssh root@app1'
+alias app2='ssh root@app2 -p10022'
+alias app5='ssh root@app5 -p10022'
+alias app3='ssh root@app3'
+alias app4='ssh root@app4'
+alias aix='ssh root@thames'
+alias thames='ssh root@thames'
+alias morphine='ssh root@morphine'
+alias inflames='ssh root@inflames'
+alias hpux='ssh root@hp01'
+alias hp01='ssh root@hp01'
+alias stback='ssh root@10.232.17.6'
+alias stedge='ssh root@10.232.17.7'
+# commands
+alias vless='/usr/share/vim/vim74/macros/less.sh'
+alias vimrc='vim ~/.vimrc'
+alias grep='grep -n --color=auto'
+alias egrep='egrep -n --color=auto'
+alias ls='ls --color'
+alias ..='cd ..'
+alias psgrep='ps -ef | grep -v grep | grep'
+alias cdsc='cd ~/Axway/SecureClient'
+alias cdax='cd ~/Axway/'
+alias kill9='kill -9'
+alias http='python2.7 -m SimpleHTTPServer 8080'
+alias ns='netstat -ntp'
+alias cls='clear'
+alias c='clear'
+alias ll='ls -la'
+alias wget='wget --no-check-certificate'
+alias esxi='ssh root@esxi'
+alias rss="liferea"
+alias t="terminator"
+# git
+alias gstat='git status'
+alias cdgit='cd ~makpoc/git'
+alias gsvndiff="git diff git-svn HEAD"
+alias gl="git log --graph --abbrev-commit --decorate --date=relative --format=:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias gpull="git stash && git pull --rebase && git stash pop"
+# rdesktop:
+alias r="rdesktop -g 1680x1000 -u vmuser -r disk:remotedisk=/home/makpoc/SharedFolder/"
+alias r154="rdesktop -g 1680x1000 -u vmuser -p Secret123 10.232.17.154 -r disk:remotedisk=/home/makpoc/SharedFolder/"
+alias r149="rdesktop -g 1680x1000 -u vmuser -p SECRET123 10.232.17.149 -r disk:remotedisk=/home/makpoc/SharedFolder/"
+alias rperf1="rdesktop -g 1680x1000 -u vmuser -p SECRET123 10.232.17.241 -r disk:remotedisk=/home/makpoc/SharedFolder/"
+alias rperf2="rdesktop -g 1680x1000 -u vmuser -p SECRET123 10.232.17.242 -r disk:remotedisk=/home/makpoc/SharedFolder/"
+alias ritanium="rdesktop -g 1680x1000 -u axrdq1 -p \"ABCdef789*#$\" -r disk:remotedisk=/home/makpoc/SharedFolder/ 10.128.56.47"
+alias ws="rdesktop -g 1680x1000 -u Administrator -p SECRET123 10.232.17.17"
+# pacman
+alias pacup="sudo pacman -Syu"
+alias pacss="pacman -Ss"
+alias pacin="sudo pacman -S"
+# ranger
+alias ranger='TERM=xterm-256color ranger'
+alias lynx='lynx --accept_all_cookies'
+alias cal='cal -m -3'

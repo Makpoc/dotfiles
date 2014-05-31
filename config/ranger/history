@@ -1,0 +1,19 @@
+open_with kkkkkjjhkkkjj
+help g
+maps
+map
+gh
+set preview_images=true
+search Pic
+search ran
+cd  .conf
+cd /home/makpoc/.config/ranger/
+mkdir colorschemes
+mv colorschemes
+move colorschemes
+delete 
+rename 
+rename solarized.py
+
+cd .config
+cd /home/makpoc/.config/ranger
