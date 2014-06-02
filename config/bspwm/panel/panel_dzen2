@@ -30,7 +30,8 @@ done
 shift $((OPTIND - 1))
 
 while read -r line ; do
-    #echo "line: $line"
+    # reset monitor value for each update to add padding only before the second one
+    monitor=
     case $line in
         S*)
             # clock output
@@ -53,6 +54,12 @@ while read -r line ; do
                 item=$1
                 case $item in
                     [mM]*)
+                        if [ -z $monitor ]; then
+                            # first monitor, no additional padding
+                            pad=""
+                        else
+                            pad=$PADDING
+                        fi
                         monitor=${item#?}
                         case $item in
                             M*)
@@ -64,7 +71,7 @@ while read -r line ; do
                                 square="^ro(3x10)"
                                 ;;
                         esac
-                        wm_infos="${wm_infos}^fg(${FG})^ca(1, bspc monitor -f $monitor)${square} ${monitor}: ^ca()^fg()"
+                        wm_infos="${wm_infos}^fg(${FG})^ca(1, bspc monitor -f $monitor)$pad${square} ${monitor}: ^ca()^fg()"
                         ;;
                     [OoFfUu]*)
                         # desktops
