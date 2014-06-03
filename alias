@@ -16,9 +16,6 @@ alias stedge='ssh root@10.232.17.7'
 # commands
 alias vless='/usr/share/vim/vim74/macros/less.sh'
 alias vimrc='vim ~/.vimrc'
-alias grep='grep -n --color=auto'
-alias egrep='egrep -n --color=auto'
-alias ls='ls --color'
 alias ..='cd ..'
 alias psgrep='ps -ef | grep -v grep | grep'
 alias cdsc='cd ~/Axway/SecureClient'
@@ -33,6 +30,12 @@ alias wget='wget --no-check-certificate'
 alias esxi='ssh root@esxi'
 alias rss="liferea"
 alias t="terminator"
+# colorize
+alias dmesg='dmesg --color'
+alias grep='grep -n --color=auto'
+alias egrep='egrep -n --color=auto'
+alias ls='ls --color'
+alias please='sudo $(fc -ln -1)'
 # git
 alias gstat='git status'
 alias cdgit='cd ~makpoc/git'

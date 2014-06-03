@@ -1,7 +1,7 @@
 #!/bin/bash
 
 bspc monitor VGA1 -d term web java python chat mail feeds viii ix
-bspc monitor HDMI1 -d buffer ii iii iv v
+bspc monitor HDMI1 -d eclipse ii iii iv v
 
 # Configure both monitors at the same time
 desktop_config() {
@@ -51,10 +51,11 @@ bspc rule -a Pidgin desktop=chat
 bspc rule -a Firefox desktop=web
 bspc rule -a Thunderbird desktop=mail
 bspc rule -a Liferea desktop=feeds
+bspc rule -a burp-StartBurp floating=on desktop=viii center=true
 #bspc rule -a Conky sticky=on manage=off lower=on
 #bspc rule -a astime sticky=on
-bspc rule -a feh floating=on manage=off
-
+#bspc rule -a feh floating=on manage=off
+bspc rule -a Eclipse desktop=eclipse fullscreen=true
 
 #desktop_config border_width 2
 #desktop_config window_gap 4
@@ -70,7 +71,10 @@ fi
 /home/makpoc/.config/bspwm/panel/panel dzen2 &
 
 # every icon takes around 20 pixels
-trayer --edge top --align right --height 16 --alpha 0 --tint 0x34322E --transparent true --widthtype pixel --expand false --monitor primary --width 129 &
+# moved to panel/panel script
+#trayer --edge top --align right --height 16 --alpha 0 --tint 0x34322E --transparent true --widthtype pixel --expand false --monitor primary --width 129 &
+
+# Autorun on startup
 unclutter -idle 5 -noevents -root &
 fbxkb & # icon
 volumeicon & # icon

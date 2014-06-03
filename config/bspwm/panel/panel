@@ -28,6 +28,10 @@ case "$flavor" in
         cat "$PANEL_FIFO" | ./panel_bar | bar -d -f '-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1'
         ;;
     dzen2)
+        # start the tray bar first. For now only dzen2 is configured to work with it
+        trayer --edge top --align right --height 16 --alpha 0 --tint 0x34322E --transparent true --widthtype pixel --expand false --monitor primary --width 129 &
+
+        # now configure and start the dzen2 panel
         PANEL_HEIGHT=16
         FONT_FAMILY='DejaVu Sans'
         FONT_SIZE=11
