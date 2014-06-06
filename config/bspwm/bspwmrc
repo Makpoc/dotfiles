@@ -56,6 +56,9 @@ bspc rule -a burp-StartBurp floating=on desktop=viii center=true
 #bspc rule -a astime sticky=on
 #bspc rule -a feh floating=on manage=off
 bspc rule -a Eclipse desktop=eclipse fullscreen=true
+bspc rule -a ncmpcpp desktop=ix
+bspc rule -a htop desktop=ix
+bspc rule -a alsa desktop=ix
 
 #desktop_config border_width 2
 #desktop_config window_gap 4
@@ -84,3 +87,6 @@ liferea & # icon
 thunderbird &
 firefox &
 shutter & # icon
+urxvt -name ncmpcpp -e ncmpcpp &
+urxvt -name htop -e htop &
+urxvt -name alsa -e alsamixer &

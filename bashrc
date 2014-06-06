@@ -31,6 +31,13 @@ export EDITOR='vim'
 export PATH=$PATH:/opt/java/bin:~/bin:/home/makpoc/scripts
 export GIT_PS1_SHOWDIRTYSTATE=1
 
+# Converts a \n separated list into a colon separated list
+colonise() {
+    /bin/cat $1 | /bin/tr "\012" ":"
+}
+
+export FIGNORE=`colonise ~/.fignore`
+
 if [ -f /usr/share/git/completion/git-prompt.sh ]; then
     . /usr/share/git/completion/git-prompt.sh
 fi
