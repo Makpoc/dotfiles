@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<opml version="1.0">
+  <head>
+    <title>Liferea Feed List Export</title>
+  </head>
+  <body>
+    <outline title="Feeds" text="Feeds" description="Feeds" type="folder" id="wsgcbtp" sortColumn="time" expanded="true">
+      <outline title="dzones" text="dzones" description="dzones" type="folder" id="vfnxsjy" sortColumn="time" expanded="true">
+        <outline title="HTML5" text="HTML5" description="HTML5" type="rss" id="mvuluab" sortColumn="time" xmlUrl="http://dzone.com/mz/html5/rss" htmlUrl="http://www.dzone.com/mz/html5" updateInterval="-1" collapsed="true"/>
+        <outline title="Python" text="Python" description="Python" type="rss" id="agcjwda" sortColumn="time" xmlUrl="http://feeds.dzone.com/zones/python" htmlUrl="http://python.dzone.com/" updateInterval="-1" collapsed="true"/>
+        <outline title="Java" text="Java" description="Java" type="rss" id="owhwiln" sortColumn="time" xmlUrl="http://feeds.dzone.com/dzone/frontpage" htmlUrl="http://www.dzone.com/links/" updateInterval="-1" collapsed="true"/>
+      </outline>
+      <outline title="Programming" text="Programming" description="Programming" type="folder" id="rlwllqt" sortColumn="time" expanded="true">
+        <outline title="Ben Boyter" text="Ben Boyter" description="Ben Boyter" type="rss" id="fbgcbos" sortColumn="time" xmlUrl="http://www.boyter.org/feed/" htmlUrl="http://www.boyter.org" updateInterval="-1" collapsed="true"/>
+        <outline title="Takipi Blog" text="Takipi Blog" description="Takipi Blog" type="rss" id="qjksuhb" sortColumn="time" xmlUrl="http://www.takipiblog.com/feed/" htmlUrl="http://www.takipiblog.com" updateInterval="-1" collapsed="true"/>
+        <outline title="Popular Python recipes" text="Popular Python recipes" description="Popular Python recipes" type="atom" id="bokacgl" sortColumn="time" xmlUrl="http://code.activestate.com/feeds/recipes/langs/python/" htmlUrl="http://code.activestate.com/recipes/langs/python/" updateInterval="-1" collapsed="true"/>
+        <outline title="Stavros' Stuff Latest Posts" text="Stavros' Stuff Latest Posts" description="Stavros' Stuff Latest Posts" type="rss" id="lpeykxw" sortColumn="time" xmlUrl="http://feeds.feedburner.com/stavrosstuff" htmlUrl="http://www.stavros.io/" updateInterval="-1" collapsed="true"/>
+        <outline title="NewCircle Training" text="NewCircle Training" description="NewCircle Training" type="rss" id="xfdsinm" sortColumn="time" xmlUrl="http://gdata.youtube.com/feeds/base/users/MarakanaTechTV/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile" htmlUrl="http://www.youtube.com/channel/UCkQX1tChV7Z7l1LFF4L9j_g/videos" updateInterval="-1" collapsed="true"/>
+        <outline title="Reddit - Daily Programmer" text="Reddit - Daily Programmer" description="Reddit - Daily Programmer" type="rss" id="kgexkoe" sortColumn="time" xmlUrl="http://www.reddit.com/r/dailyprogrammer/.rss" htmlUrl="http://www.reddit.com/r/dailyprogrammer/" updateInterval="-1" collapsed="true"/>
+        <outline title="Programmer blog" text="Programmer blog" description="Programmer blog" type="atom" id="splkbcp" sortColumn="time" xmlUrl="http://garmoncheg.blogspot.com/feeds/posts/default" htmlUrl="http://garmoncheg.blogspot.com/" updateInterval="-1" collapsed="true"/>
+        <outline title="Python" text="Python" description="Python" type="folder" id="memljtg" sortColumn="time" expanded="true">
+          <outline title="Planet Python" text="Planet Python" description="Planet Python" type="rss" id="arrsxwo" sortColumn="time" xmlUrl="http://planet.python.org/rss20.xml" htmlUrl="http://planet.python.org/" updateInterval="-1" collapsed="true"/>
+          <outline title="love-python" text="love-python" description="love-python" type="atom" id="cmmonoa" sortColumn="time" xmlUrl="http://love-python.blogspot.com/feeds/posts/default" htmlUrl="http://love-python.blogspot.com/" updateInterval="-1" collapsed="true"/>
+          <outline title="Bite Sized Python Tips" text="Bite Sized Python Tips" description="Bite Sized Python Tips" type="rss" id="vnqgakl" sortColumn="time" xmlUrl="http://freepythontips.wordpress.com/feed/" htmlUrl="http://freepythontips.wordpress.com" updateInterval="-1" collapsed="true"/>
+          <outline title="pydanny" text="pydanny" description="pydanny" type="atom" id="nulcbtm" sortColumn="time" xmlUrl="http://pydanny.com/feeds/all.atom.xml" htmlUrl="http://pydanny.com/" updateInterval="-1" collapsed="true"/>
+          <outline title="Reddit - Python" text="Reddit - Python" description="Reddit - Python" type="rss" id="sohhmhp" sortColumn="time" xmlUrl="http://www.reddit.com/r/Python/.rss" htmlUrl="http://www.reddit.com/r/Python/" updateInterval="-1" collapsed="true"/>
+        </outline>
+        <outline title="Java" text="Java" description="Java" type="folder" id="bierghv" sortColumn="time" expanded="true">
+          <outline title="The Java(tm) Specialists' Newsletter" text="The Java(tm) Specialists' Newsletter" description="The Java(tm) Specialists' Newsletter" type="rss" id="kxbgipl" sortColumn="time" xmlUrl="http://www.javaspecialists.eu/archive/tjsn.rss" htmlUrl="http://www.javaspecialists.eu" updateInterval="-1" collapsed="true"/>
+          <outline title="Steve Wedig's Notes" text="Steve Wedig's Notes" description="Steve Wedig's Notes" type="rss" id="brvmkjh" sortColumn="time" xmlUrl="http://stevewedig.com/feed/" htmlUrl="http://stevewedig.com" updateInterval="-1" collapsed="true"/>
+          <outline title="Java tutorial for beginners" text="Java tutorial for beginners" description="Java tutorial for beginners" type="atom" id="cdpfxow" sortColumn="time" xmlUrl="http://javapostsforlearning.blogspot.com/feeds/posts/default" htmlUrl="http://javapostsforlearning.blogspot.com/" updateInterval="-1" collapsed="true"/>
+          <outline title="ramj2ee" text="ramj2ee" description="ramj2ee" type="atom" id="xadnirs" sortColumn="time" xmlUrl="http://ramj2ee.blogspot.com/feeds/posts/default" htmlUrl="http://ramj2ee.blogspot.com/" updateInterval="-1" collapsed="true"/>
+        </outline>
+      </outline>
+      <outline title="Fun" text="Fun" description="Fun" type="folder" id="vqjowkm" sortColumn="time" expanded="true">
+        <outline title="The coding love" text="The coding love" description="The coding love" type="rss" id="eoxsaml" sortColumn="time" xmlUrl="http://thecodinglove.com/rss" htmlUrl="http://thecodinglove.com/" updateInterval="-1" collapsed="true"/>
+        <outline title="xkcd" text="xkcd" description="xkcd" type="atom" id="pgkhnxi" sortColumn="time" xmlUrl="http://xkcd.com/atom.xml" htmlUrl="http://xkcd.com/" updateInterval="-1" collapsed="true"/>
+        <outline title="DevOps Reactions" text="DevOps Reactions" description="DevOps Reactions" type="rss" id="mgdnrwx" sortColumn="time" xmlUrl="http://devopsreactions.tumblr.com/rss" htmlUrl="http://devopsreactions.tumblr.com/" updateInterval="-1" collapsed="true"/>
+        <outline title="Life of a Software Engineer" text="Life of a Software Engineer" description="Life of a Software Engineer" type="rss" id="phohlor" sortColumn="time" xmlUrl="http://lifeofasoftwareengineer.tumblr.com/rss" htmlUrl="http://lifeofasoftwareengineer.tumblr.com/" updateInterval="-1" collapsed="true"/>
+      </outline>
+      <outline title="Hacking" text="Hacking" description="Hacking" type="folder" id="mgsiwne" sortColumn="time" expanded="true">
+        <outline title="Erdal Ozkaya Personal Blog" text="Erdal Ozkaya Personal Blog" description="Erdal Ozkaya Personal Blog" type="rss" id="seaisrr" sortColumn="time" xmlUrl="http://erdalozkaya.com/index.php?format=feed&amp;type=rss" htmlUrl="http://erdalozkaya.com/index.php/component/content/featured" updateInterval="-1" collapsed="true"/>
+      </outline>
+    </outline>
+    <outline title="Unread" text="Unread" description="Unread" type="vfolder" id="pxerrit" sortColumn="time" matchType="any" collapsed="true">
+      <outline type="rule" text="Read status" rule="unread" value="" additive="true"/>
+    </outline>
+  </body>
+</opml>

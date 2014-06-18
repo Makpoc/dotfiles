@@ -35,7 +35,7 @@ alias dmesg='dmesg --color'
 alias grep='grep -n --color=auto'
 alias egrep='egrep -n --color=auto'
 alias ls='ls --color'
-alias please='sudo $(fc -ln -1)'
+alias pls='sudo $(fc -ln -1)'
 # git
 alias gstat='git status'
 alias cdgit='cd ~makpoc/git'

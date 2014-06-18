@@ -144,11 +144,17 @@ vnoremap < <gv
 vnoremap > >gv 
 nmap <M-o> o<Esc>
 
-" Move through the windows
+" Move through splits
 map <silent>,h <C-w>h
 map <silent>,j <C-w>j
 map <silent>,k <C-w>k
 map <silent>,l <C-w>l
+
+" Swap splits
+map <silent>,H <C-w>H
+map <silent>,J <C-w>J
+map <silent>,K <C-w>K
+map <silent>,L <C-w>L
 
 " open splits
 nnoremap <leader>w <C-w>v
@@ -257,7 +263,7 @@ augroup END
 
 " vim-powerline:
 set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
+"set encoding=utf-8 " Necessary to show Unicode glyphs
 let g:Powerline_symbols='unicode'
 
 " airline settings
