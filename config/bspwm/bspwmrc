@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bspc monitor VGA1 -d term web java python chat mail feeds viii ix
+bspc monitor VGA1 -d web term java python chat mail feeds viii ix
 bspc monitor HDMI1 -d eclipse pycharm iii iv v
 
 # Configure both monitors at the same time
@@ -16,7 +16,6 @@ desktop_config() {
 #            -d {term,web,java,python,chat,vi,vii,viii,ix,x}
 #done
 
-# TODO - check the format for this tree
 if [ -e "$BSPWM_TREE" ] ; then
     bspc restore -T "$BSPWM_TREE" -H "$BSPWM_HISTORY" -S "$BSPWM_STACK"
     rm "$BSPWM_TREE" "$BSPWM_HISTORY" "$BSPWM_STACK"
@@ -43,7 +42,6 @@ desktop_config focused_locked_border_color "#cb4b16"
 desktop_config normal_frame_opacity 0.0
 desktop_config focused_frame_opacity 0.2
 
-
 # Rules
 #bspc rule -a Skype pseudo_tiled=on desktop=chat
 bspc rule -a Skype desktop=chat
@@ -55,8 +53,8 @@ bspc rule -a burp-StartBurp floating=on desktop=viii center=true
 #bspc rule -a Conky sticky=on manage=off lower=on
 #bspc rule -a astime sticky=on
 #bspc rule -a feh floating=on manage=off
-bspc rule -a jetbrains-pycharm desktop=pycharm fullscreen=true
-bspc rule -a Eclipse desktop=eclipse fullscreen=true
+bspc rule -a jetbrains-pycharm desktop=pycharm
+bspc rule -a Eclipse desktop=eclipse
 bspc rule -a ncmpcpp desktop=ix
 bspc rule -a htop desktop=ix
 bspc rule -a alsa desktop=ix

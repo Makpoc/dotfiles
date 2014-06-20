@@ -42,6 +42,10 @@ if [ -f /usr/share/git/completion/git-prompt.sh ]; then
     . /usr/share/git/completion/git-prompt.sh
 fi
 
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+    . /usr/bin/virtualenvwrapper.sh
+fi
+
 #export TERM='rxvt-unicode-256color'
 #export TERM='screen-256color'
 COLOR_RESET="\[\e[0m\]"
@@ -65,6 +69,7 @@ if [[ ${EUID} == 0 ]] ; then
 else
     sq_color=$COLOR_USER
 fi
+
 PS1="$COLOR_NORMAL┌─[${root}$sq_color\u碁$COLOR_NORMAL‖$COLOR_HOST\h$COLOR_NORMAL] [$COLOR_CWD\w$COLOR_NORMAL] \$(__git_ps1 \"[$YELLOW%s$COLOR_NORMAL]\")\n└──── $RESET"
 
 # Solarized theme for ls command. (https://github.com/seebi/dircolors-solarized)
@@ -77,7 +82,8 @@ if [ -f ~/.grep_colors ]; then
     . ~/.grep_colors
 fi
 
-archey
+# too slow on startup
+#archey
 
 # Add color to man pages
 man() {

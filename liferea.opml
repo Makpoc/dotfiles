@@ -24,6 +24,7 @@
           <outline title="Bite Sized Python Tips" text="Bite Sized Python Tips" description="Bite Sized Python Tips" type="rss" id="vnqgakl" sortColumn="time" xmlUrl="http://freepythontips.wordpress.com/feed/" htmlUrl="http://freepythontips.wordpress.com" updateInterval="-1" collapsed="true"/>
           <outline title="pydanny" text="pydanny" description="pydanny" type="atom" id="nulcbtm" sortColumn="time" xmlUrl="http://pydanny.com/feeds/all.atom.xml" htmlUrl="http://pydanny.com/" updateInterval="-1" collapsed="true"/>
           <outline title="Reddit - Python" text="Reddit - Python" description="Reddit - Python" type="rss" id="sohhmhp" sortColumn="time" xmlUrl="http://www.reddit.com/r/Python/.rss" htmlUrl="http://www.reddit.com/r/Python/" updateInterval="-1" collapsed="true"/>
+          <outline title="The History of Python" text="The History of Python" description="The History of Python" type="atom" id="wljvffv" sortColumn="time" xmlUrl="http://python-history.blogspot.com/feeds/posts/default" htmlUrl="http://python-history.blogspot.com/" updateInterval="-1" collapsed="true"/>
         </outline>
         <outline title="Java" text="Java" description="Java" type="folder" id="bierghv" sortColumn="time" expanded="true">
           <outline title="The Java(tm) Specialists' Newsletter" text="The Java(tm) Specialists' Newsletter" description="The Java(tm) Specialists' Newsletter" type="rss" id="kxbgipl" sortColumn="time" xmlUrl="http://www.javaspecialists.eu/archive/tjsn.rss" htmlUrl="http://www.javaspecialists.eu" updateInterval="-1" collapsed="true"/>
