@@ -38,6 +38,9 @@ colonise() {
 
 export FIGNORE=`colonise ~/.fignore`
 
+# python completion
+export PYTHONSTARTUP=$HOME'/.pythonstartup'
+
 if [ -f /usr/share/git/completion/git-prompt.sh ]; then
     . /usr/share/git/completion/git-prompt.sh
 fi
@@ -152,3 +155,9 @@ w3mimg()
 {
     w3m -o imgdisplay=/usr/lib/w3m/w3mimgdisplay $1
 }
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/git
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    . /usr/local/bin/virtualenvwrapper.sh
+fi
