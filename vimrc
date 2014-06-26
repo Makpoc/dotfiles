@@ -174,12 +174,12 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 cmap w!! w !sudo tee % >/dev/null
 
 " paste from clipboard
-nnoremap <leader>p "*p
-nnoremap <leader>P "*P
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
 
 " copy to clipboard
-nnoremap <leader>y "*y
-nnoremap <leader>Y "*Y
+nnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
 
 " NERDTree
 let NERDTreeQuitOnOpen=1

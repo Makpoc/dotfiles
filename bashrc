@@ -58,11 +58,17 @@ COLOR_USER="\e[0;33m"
 COLOR_HOST="\e[0;96m"
 COLOR_CWD="\[\e[0;32m\]"
 RED="\[\033[31;1m\]"
-YELLOW="\[\033[33;1m\]"
+GREY="\[\033[33;1m\]"
 WHITE="\[\033[37;1m\]"
 SMILEY="${WHITE}:)${COLOR_NORMAL}"
 FROWNY="${RED}:(${COLOR_NORMAL}"
-SELECT="if [ \$? = 0 ]; then echo \"${SMILEY}\"; else echo \"${FROWNY}\"; fi"
+#last_command() {
+#    if [ \$? = 0 ]; then 
+#        echo \"${SMILEY}\"; 
+#    else 
+#        echo \"${FROWNY}\"; 
+#    fi
+#}
 
 #If you get distorted sound in skype, try adding PULSE_LATENCY_MSEC=60 to your
 #env before starting skype. Something like 'export PULSE_LATENCY_MSEC=60' in .bashrc, for example.
@@ -73,7 +79,8 @@ else
     sq_color=$COLOR_USER
 fi
 
-PS1="$COLOR_NORMAL┌─[${root}$sq_color\u碁$COLOR_NORMAL‖$COLOR_HOST\h$COLOR_NORMAL] [$COLOR_CWD\w$COLOR_NORMAL] \$(__git_ps1 \"[$YELLOW%s$COLOR_NORMAL]\")\n└──── $RESET"
+
+PS1="$COLOR_NORMAL┌─[${root}$sq_color\u碁$COLOR_NORMAL‖$COLOR_HOST\h$COLOR_NORMAL][$GREY!\!$COLOR_NORMAL][$COLOR_CWD\w$COLOR_NORMAL]\$(__git_ps1 \"[$GREY%s$COLOR_NORMAL]\")\n└──── $RESET"
 
 # Solarized theme for ls command. (https://github.com/seebi/dircolors-solarized)
 if [ -f ~/.ls_colors ]; then
