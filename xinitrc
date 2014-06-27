@@ -14,6 +14,7 @@ xset fp rehash
 xscreensaver &
 compton &
 xsetroot -cursor_name left_ptr &
+urxvtd -q -f -o
 exec $1
 #exec ~/bin/bspwm_run.sh
 #exec openbox-session

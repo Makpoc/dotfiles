@@ -131,7 +131,7 @@ super + @button{1-3}
 
 # Start terminal
 super + Return
-	urxvt
+	urxvtc
 
 # Start launcher (dmenu-tools-git)
 super + d

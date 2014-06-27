@@ -86,6 +86,6 @@ liferea & # icon
 thunderbird &
 firefox &
 shutter & # icon
-urxvt -name ncmpcpp -e ncmpcpp &
-urxvt -name htop -e htop &
-urxvt -name alsa -e alsamixer &
+urxvtc -name ncmpcpp -e ncmpcpp &
+urxvtc -name htop -e htop &
+urxvtc -name alsa -e alsamixer &

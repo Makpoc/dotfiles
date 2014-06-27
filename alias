@@ -55,7 +55,10 @@ alias ws="rdesktop -g $resolution -u Administrator -p SECRET123 10.232.17.17"
 alias pacup="sudo pacman -Syu"
 alias pacss="pacman -Ss"
 alias pacin="sudo pacman -S"
+# yaourt
+alias yup="yaourt -Syua"
 # ranger
 alias ranger='TERM=xterm-256color ranger'
 alias lynx='lynx --accept_all_cookies'
 alias cal='cal -m -3'
+alias p='python2.7'
