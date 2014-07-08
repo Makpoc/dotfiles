@@ -56,7 +56,11 @@ super + {_,shift + }c
 #super + m
 #	bspc window -s biggest
 
-# focus/move the focused window to to the given direction
+# focus/move the focused window to to the given direction - lazy style
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc window -{f,s} {left,down,up,right}
+
+# focus/move the focused window to to the given direction - vim style
 super + {_,shift + }{h,j,k,l}
 	bspc window -{f,s} {left,down,up,right}
 

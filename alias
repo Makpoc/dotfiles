@@ -60,5 +60,6 @@ alias yup="yaourt -Syua"
 # ranger
 alias ranger='TERM=xterm-256color ranger'
 alias lynx='lynx --accept_all_cookies'
-alias cal='cal -m -3'
-alias p='python2.7'
+alias cal='cal -y -m --color=always'
+alias p='python2'
+alias p3='python3'

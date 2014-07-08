@@ -2,11 +2,11 @@
 
 !<----  URxvt settings ---->!
 !URxvt*saveLines:            65535
+URxvt*buffered:             false
 URxvt*scrollBar:            false
 URxvt*termName:             rxvt-unicode-256color
 URxvt*font:                 xft:DejaVu Sans Mono for Powerline:pixelsize=11
 URxvt*urgentOnBell:         true
-URxvt*depth:                32
 !URxvt*background:           [100]#1b1d1e
 !>---- Extensions ----<!
 URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
