@@ -149,3 +149,28 @@ super + shift + d
 # Lock the screen
 ctrl + alt + l
     xscreensaver-command -lock
+
+# MEDIA - MPD
+# Pause/Resume MPD playback (using Pause/Break)
+Pause
+    mpc toggle
+    
+# Next song (xev shows pagedown as Next)
+super + Next
+    mpc next
+
+# Previous song (xev shows pageup as Prior)
+super + Prior
+    mpc prev
+
+# MEDIA - ALSA
+super + Pause
+    amixer set Master toggle
+
+# Volume down
+super + shift + Next
+    amixer set Master 1-
+
+# Volume up
+super + shift + Prior
+    amixer set Master 1+

@@ -168,3 +168,9 @@ export PROJECT_HOME=$HOME/git
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     . /usr/local/bin/virtualenvwrapper.sh
 fi
+
+# Go
+export GOPATH=~/git/go
+export PATH=$PATH:$GOPATH/bin
+
+set -o vi

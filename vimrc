@@ -21,6 +21,7 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+set number      " see https://github.com/myusuf3/numbers.vim#vim-74 (required by the numbers plugin)
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -75,6 +76,19 @@ else
   set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
+
+" Vundle (see /usr/share/vundle/vimrc.sample)
+filetype off
+
+call vundle#rc()
+
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'fatih/vim-go'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'altercation/vim-colors-solarized'
+
+filetype plugin indent on
+
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -310,3 +324,17 @@ func! s:FTpydjango()
 endfunc
 
 "Experiments
+" Go
+" fix GoDoc (mapped to K)
+source ~/.vim/bundle/vim-go/ftplugin/go/godoc.vim
+
+au FileType go nmap <Leader>r <Plug>(go-run)
+au FileType go nmap <Leader>i <Plug>(go-install)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+
+au FileType go nmap gd <Plug>(go-def)
+
+

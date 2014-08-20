@@ -1,7 +1,7 @@
 #!/bin/bash
 
 bspc monitor VGA1 -d web term java python chat mail feeds viii ix
-bspc monitor HDMI1 -d eclipse pycharm iii iv v
+bspc monitor HDMI1 -d eclipse pycharm go iv v
 
 # Configure both monitors at the same time
 desktop_config() {
