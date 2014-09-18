@@ -1,7 +1,7 @@
 #!/bin/bash
 
-bspc monitor VGA1 -d web term java python chat mail feeds viii ix
-bspc monitor HDMI1 -d eclipse pycharm go iv v
+bspc monitor VGA1 -d www term1 term2 term3 chat mail feeds var sys 
+bspc monitor HDMI1 -d eclipse pycharm go IV V
 
 # Configure both monitors at the same time
 desktop_config() {
@@ -49,15 +49,17 @@ bspc rule -a Pidgin desktop=chat
 bspc rule -a Firefox desktop=web
 bspc rule -a Thunderbird desktop=mail
 bspc rule -a Liferea desktop=feeds
-bspc rule -a burp-StartBurp floating=on desktop=viii center=true
+bspc rule -a burp-StartBurp floating=on desktop=var center=true
 #bspc rule -a Conky sticky=on manage=off lower=on
 #bspc rule -a astime sticky=on
 #bspc rule -a feh floating=on manage=off
 bspc rule -a jetbrains-pycharm desktop=pycharm
 bspc rule -a Eclipse desktop=eclipse
-bspc rule -a ncmpcpp desktop=ix
-bspc rule -a htop desktop=ix
-bspc rule -a alsa desktop=ix
+bspc rule -a ncmpcpp desktop=sys
+bspc rule -a htop desktop=sys
+bspc rule -a alsa desktop=sys
+# used in left click on pacman (dzen2)
+bspc rule -a pacup floating=on center=true
 
 #desktop_config border_width 2
 #desktop_config window_gap 4

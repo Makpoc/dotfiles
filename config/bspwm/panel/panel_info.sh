@@ -12,7 +12,7 @@ BG_COLOUR="#141415"
 #FONT=-artwiz-cure-*-*-*-*-*-*-*-*-*-*-*-*
 FONT="cure:size=8"
 
-UPDATE_INTERVAL=30
+UPDATE_INTERVAL=60
 
 ICON_COLOR="#019BAA"
 SEP="^fg(#767676) | ^fg()"
