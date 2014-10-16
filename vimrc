@@ -136,7 +136,7 @@ set smartcase
 set wildignore=*.swp,*.bak,*.pyc,*.class,*~
 
 "set autochdir
-set completeopt=preview,menuone
+set completeopt=menu,menuone
 
 "Colorscheme
 set background=dark
@@ -326,9 +326,10 @@ endfunc
 "Experiments
 " Go
 " fix GoDoc (mapped to K)
-source ~/.vim/bundle/vim-go/ftplugin/go/godoc.vim
+source ~/.vim/bundle/vim-go/autoload/go/doc.vim
 
-au FileType go nmap <Leader>r <Plug>(go-run)
+au FileType go nmap <Leader>r <Plug>(go-rename)
+au FileType go nmap <Leader>c <Plug>(go-coverage)
 au FileType go nmap <Leader>i <Plug>(go-install)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)

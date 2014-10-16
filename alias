@@ -60,6 +60,8 @@ alias pacin="sudo pacman -S"
 alias yup="yaourt -Syua"
 # ranger
 alias ranger='TERM=xterm-256color ranger'
+alias rskype='ranger ~/Downloads/Skype/'
+# Misc
 alias lynx='lynx --accept_all_cookies'
 alias cal='cal -y -m --color=always'
 alias p='python2'
