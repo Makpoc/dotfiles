@@ -120,11 +120,11 @@ man() {
 
 # List dir content after cd
 function cd() {
-if [ $# -eq 0 ]; then 
-    builtin cd ~ && ls;
-else
-    builtin cd "$@" && ls;
-fi 
+    if [ $# -eq 0 ]; then 
+        builtin cd ~ && ls;
+    else
+        builtin cd "$@" && ls;
+    fi 
 }
 
 unset HISTFILESIZE
@@ -138,25 +138,9 @@ if [ -f ~/.bashrc_work ]; then
     . ~/.bashrc_work
 fi
 
-api()
-{
-    resource=$1;
-    shift;
-    if (($#==1)); then flag='-d'; else flag=''; fi;
-    curl $flag "$@" -ikK ~/.st/admin https://st:444/api/v1.2/$resource;
-    echo;
-}
-alias api=api
-
-apiu()
-{
-    resource=$1;
-    shift;
-    if (($#==1)); then flag='-d'; else flag=''; fi;
-    curl $flag "$@" -ikK ~/.st/api https://st:443/api/v1.2/$resource;
-    echo;
-}
-alias apiu=apiu
+if [ -z "$DBUS_SESSION_BUS_ADDRESS" ] ; then
+    eval 'dbus-launch --sh-syntax --exit-with-session' >/dev/null
+fi
 
 w3mimg()
 {
