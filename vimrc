@@ -43,6 +43,10 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+if has("gui_running")
+    set guifont=Source\ Code\ Pro\ for\ Powerline\ Semi-Light\ 10
+endif
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -86,6 +90,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'Auto-Pairs'
 
 filetype plugin indent on
 
@@ -140,7 +145,10 @@ set completeopt=menu,menuone
 
 "Colorscheme
 set background=dark
-colorscheme solarized
+"colorscheme solarized
+" from here: https://github.com/jpo/vim-railscasts-theme
+colorscheme railscasts
+
 
 " <Leader> remap
 let mapleader = ","
@@ -188,12 +196,13 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 cmap w!! w !sudo tee % >/dev/null
 
 " paste from clipboard
+" + - selection clipboard
+" * - ctrl+c/v clipboard
 nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-
+nnoremap <leader>P "*P
 " copy to clipboard
 nnoremap <leader>y "+y
-nnoremap <leader>Y "+Y
+nnoremap <leader>Y "*Y
 
 " NERDTree
 let NERDTreeQuitOnOpen=1
@@ -268,6 +277,8 @@ au FileType htmldjango inoremap {{ {{ }}<left><left><left>
 au! BufNewFile,BufRead scheduler*.txt set syntax=sclog
 " wiki highlight
 au! BufNewFile,BufRead *.wiki set syntax=wiki
+" log4j
+au! BufRead,BufNewFile catalina.out,*.out,*.out.*,*.log,*.log.* setf log
 
 " Make vim watch for changes in vimrc file and reload
 augroup reload_vimrc
@@ -328,14 +339,18 @@ endfunc
 " fix GoDoc (mapped to K)
 source ~/.vim/bundle/vim-go/autoload/go/doc.vim
 
+au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>r <Plug>(go-rename)
 au FileType go nmap <Leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>u <Plug>(go-build)
 au FileType go nmap <Leader>i <Plug>(go-install)
-au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>K <Plug>(go-doc-split)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <Leader>gd <Plug>(go-def)
 
-au FileType go nmap gd <Plug>(go-def)
+let g:go_fmt_command = "goimports"
 
-
+"let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1

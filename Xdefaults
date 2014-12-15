@@ -6,7 +6,8 @@
 URxvt*scrollBar:            false
 URxvt*termName:             rxvt-unicode-256color
 !URxvt*depth:                32
-URxvt*font:                 xft:DejaVu Sans Mono for Powerline:pixelsize=11
+!URxvt*font:                 xft:DejaVu Sans Mono for Powerline:pixelsize=11
+URxvt*font:                  xft:Source\ Code\ Pro\ Medium:pixelsize=12:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=12:antialias=true:hinting=true
 URxvt*urgentOnBell:         true
 !URxvt*background:           [100]#1b1d1e
 !>---- Extensions ----<!

@@ -13,6 +13,12 @@ alias hpux='ssh root@hp01'
 alias hp01='ssh root@hp01'
 alias stback='ssh root@10.232.17.6'
 alias stedge='ssh root@10.232.17.7'
+# colorize
+alias dmesg='dmesg --color'
+alias grep='grep -n --color=auto'
+alias egrep='egrep -n --color=auto'
+alias ls='ls --color -F'
+alias pls='sudo $(fc -ln -1)'
 # commands
 alias vless='/usr/share/vim/vim74/macros/less.sh'
 alias vimrc='vim ~/.vimrc'
@@ -25,18 +31,12 @@ alias http='python2.7 -m SimpleHTTPServer 8080'
 alias ns='netstat -ntp'
 alias cls='clear'
 alias c='clear'
-alias ll='ls -la'
-alias l='ls'
+alias ll='ls -laF'
+alias l='ls -F'
 alias wget='wget --no-check-certificate'
 alias esxi='ssh root@esxi'
 alias rss="liferea"
 alias t="terminator"
-# colorize
-alias dmesg='dmesg --color'
-alias grep='grep -n --color=auto'
-alias egrep='egrep -n --color=auto'
-alias ls='ls --color'
-alias pls='sudo $(fc -ln -1)'
 # git
 alias gstat='git status'
 alias cdgit='cd ~makpoc/git'

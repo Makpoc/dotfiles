@@ -11,6 +11,9 @@ xset fp rehash
 [[ -f ~/.Xdefaults ]] && xrdb -load ~/.Xdefaults
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
+# https://wiki.archlinux.org/index.php/java#Non-reparenting_window_managers
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 xscreensaver &
 #compton &
 xsetroot -cursor_name left_ptr &
