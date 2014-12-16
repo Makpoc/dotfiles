@@ -339,13 +339,15 @@ endfunc
 " fix GoDoc (mapped to K)
 source ~/.vim/bundle/vim-go/autoload/go/doc.vim
 
+" For GoDoc to be only 20 lines - change:
+"   change all _leftabove new_ in ~/.vim/bundle/vim-go/ftplugin/go/commands.vim
+"   to _leftabove 20new_
+
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>r <Plug>(go-rename)
 au FileType go nmap <Leader>c <Plug>(go-coverage)
 au FileType go nmap <Leader>u <Plug>(go-build)
 au FileType go nmap <Leader>i <Plug>(go-install)
-au FileType go nmap <Leader>K <Plug>(go-doc-split)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <Leader>gd <Plug>(go-def)
 
