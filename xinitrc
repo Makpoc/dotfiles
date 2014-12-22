@@ -14,7 +14,8 @@ xset fp rehash
 # https://wiki.archlinux.org/index.php/java#Non-reparenting_window_managers
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-xscreensaver &
+#xscreensaver &
+exec xautolock -detectsleep -locker /home/makpoc/scripts/i3lock/i3lock_blur -nowlocker /home/makpoc/scripts/i3lock/i3lock_blur -time 5 &
 #compton &
 xsetroot -cursor_name left_ptr &
 # created service

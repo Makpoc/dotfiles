@@ -147,8 +147,10 @@ super + shift + d
 
 #
 # Lock the screen
+#ctrl + alt + l
+#    xscreensaver-command -lock
 ctrl + alt + l
-    xscreensaver-command -lock
+    xautolock -locknow
 
 # MEDIA - MPD
 # Pause/Resume MPD playback (using Pause/Break)
