@@ -7,12 +7,12 @@ IMAGE=/tmp/i3lock.png
 scrot $IMAGE
 convert $IMAGE -level 0%,100%,0.6 -blur 0x4 - | composite -geometry +847+506 $(dirname $0)/lock.png - $IMAGE 
 
-xautolock -disable
+#xautolock -disable
 if [ $? -eq 0 ]; then
     i3lock -e -i $IMAGE
 else 
     i3lock -e -c 000000 
 fi
-xautolock -enable
+#xautolock -enable
 
 rm $IMAGE
