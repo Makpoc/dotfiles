@@ -14,7 +14,7 @@ xset fp rehash
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 #xscreensaver &
-exec xautolock -detectsleep -locker /home/makpoc/scripts/i3lock/i3lock_blur -nowlocker /home/makpoc/scripts/i3lock/i3lock_blur -time 5 &
+exec xautolock -detectsleep -locker /home/makpoc/scripts/i3lock/i3lock_blur -time 5 &
 #compton &
 xsetroot -cursor_name left_ptr &
 # created service
