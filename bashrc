@@ -36,7 +36,9 @@ colonise() {
     /bin/cat $1 | /bin/tr "\012" ":"
 }
 
-export FIGNORE=`colonise ~/.fignore`
+if [ -f ~/.fignore ]; then
+    export FIGNORE=`colonise ~/.fignore`
+fi
 
 # python completion
 export PYTHONSTARTUP=$HOME'/.pythonstartup'
