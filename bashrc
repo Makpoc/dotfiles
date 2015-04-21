@@ -155,6 +155,7 @@ fi
 
 # Go
 export GOPATH=~/git/go
+export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
 
 set -o vi
