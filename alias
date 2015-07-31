@@ -13,12 +13,14 @@ alias hpux='ssh root@hp01'
 alias hp01='ssh root@hp01'
 alias stback='ssh root@10.232.17.6'
 alias stedge='ssh root@10.232.17.7'
+
 # colorize
 alias dmesg='dmesg --color'
 alias grep='grep -n --color=auto'
 alias egrep='egrep -n --color=auto'
 alias ls='ls --color -F'
 alias pls='sudo $(fc -ln -1)'
+
 # commands
 alias vless='/usr/share/vim/vim74/macros/less.sh'
 alias vimrc='vim ~/.vimrc'
@@ -30,40 +32,40 @@ alias cdax='cd ~/Axway/'
 alias kill9='kill -9'
 alias http='python2.7 -m SimpleHTTPServer 8080'
 alias ns='netstat -ntp'
-alias cls='clear'
 alias c='clear'
 alias ll='ls -laF --group-directories-first'
 alias l='ls -F'
 alias wget='wget --no-check-certificate'
 alias esxi='ssh root@esxi'
-alias rss="liferea"
-alias t="terminator"
+# http://zwischenzugs.tk/index.php/2015/07/01/bash-shortcuts-gem/
+alias binds="echo ' * Binds:'; bind -l | sed 's/.*/bind -q \0/' | bash 2>&1 | command grep 'can be' ; echo ' * STTYs:'; stty -a"
+alias portdump='tcpdump -an -A -s 0 port'
+alias mountcd='sudo mount -t iso9660 -o ro' # /dev/sr0 ./cdrom
+
 # git
 alias gstat='git status'
 alias cdgit='cd ~makpoc/git'
 alias gsvndiff="git diff git-svn HEAD"
 alias gl="git log --graph --abbrev-commit --decorate --date=relative --format=:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 alias gpull="git stash save 'gpull' && git pull --rebase && git stash pop"
+
 # rdesktop:
 resolution='1920x1050'
 alias r="rdesktop -g $resolution -u vmuser -r disk:remotedisk=/home/makpoc/SharedFolder/"
 alias r154="rdesktop -g $resolution -u vmuser -p Secret123 10.232.17.154 -r disk:remotedisk=/home/makpoc/SharedFolder/"
-alias r149="rdesktop -g $resolution -u vmuser -p SECRET123 10.232.17.149 -r disk:remotedisk=/home/makpoc/SharedFolder/"
-alias rperf1="rdesktop -g $resolution -u vmuser -p SECRET123 10.232.17.241 -r disk:remotedisk=/home/makpoc/SharedFolder/"
-alias rperf2="rdesktop -g $resolution -u vmuser -p SECRET123 10.232.17.242 -r disk:remotedisk=/home/makpoc/SharedFolder/"
-alias ritanium="rdesktop -g $resolution -u axrdq1 -p \"ABCdef789*#$\" -r disk:remotedisk=/home/makpoc/SharedFolder/ 10.128.56.47"
-alias ws="rdesktop -g $resolution -u Administrator -p SECRET123 10.232.17.17"
+
 # pacman
 alias pacup="sudo pacman -Syu"
 alias pacss="pacman -Ss"
 alias pacin="sudo pacman -S"
+
 # yaourt
 alias yup="yaourt -Syua"
+
 # ranger
 alias ranger='TERM=xterm-256color ranger'
 alias rskype='ranger ~/Downloads/Skype/'
+
 # Misc
 alias lynx='lynx --accept_all_cookies'
 alias cal='cal -y -m --color=always'
-alias p='python2'
-alias p3='python3'

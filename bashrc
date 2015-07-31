@@ -129,6 +129,9 @@ function cd() {
     fi 
 }
 
+# cd into dir without typing cd
+shopt -s autocd
+
 unset HISTFILESIZE
 export HISTSIZE=10000
 export HISTCONTROL=ignoreboth
@@ -159,5 +162,9 @@ fi
 export GOPATH=~/git/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
+
+# Java
+# IntelliJ fix for popup/floating windows. See http://awesome.naquadah.org/wiki/Problems_with_Java for more problems/solutions
+_JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING 
 
 set -o vi
