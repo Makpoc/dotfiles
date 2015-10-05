@@ -88,6 +88,7 @@ call vundle#rc()
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'myusuf3/numbers.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Auto-Pairs'

@@ -82,7 +82,7 @@ else
 fi
 
 
-PS1="$COLOR_NORMAL┌─[${root}$sq_color\u碁$COLOR_NORMAL‖$COLOR_HOST\h$COLOR_NORMAL][$GREY!\!$COLOR_NORMAL][$COLOR_CWD\w$COLOR_NORMAL]\$(__git_ps1 \"[$GREY%s$COLOR_NORMAL]\")\n└──── $RESET"
+PS1="$COLOR_NORMAL┌─[${root}$sq_color\u$COLOR_NORMAL::$COLOR_HOST\h$COLOR_NORMAL][$GREY!\!$COLOR_NORMAL][$COLOR_CWD\w$COLOR_NORMAL]\$(__git_ps1 \"[$GREY%s$COLOR_NORMAL]\")\n└─╼ $RESET"
 
 # Solarized theme for ls command. (https://github.com/seebi/dircolors-solarized)
 if [ -f ~/.ls_colors ]; then
@@ -165,6 +165,7 @@ export PATH=$PATH:$GOPATH/bin
 
 # Java
 # IntelliJ fix for popup/floating windows. See http://awesome.naquadah.org/wiki/Problems_with_Java for more problems/solutions
-_JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING 
+# warning - it seems to break eclipse
+#_JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING 
 
 set -o vi

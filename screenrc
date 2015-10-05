@@ -12,20 +12,20 @@ altscreen on
 
 # Programs opening by default
 
-chdir git
-screen -t "git" 0 
-chdir 
-screen -t "root" 1 su -
-chdir git/django_project
-screen -t "Django" 2 
-chdir
-screen -t "Terminal 3" 3 
-screen -t "Terminal 4" 4 
-screen -t "Terminal 5" 5 
-screen -t "Terminal 6" 6 
-screen -t "Terminal 7" 7 
-screen -t "Terminal 8" 8 
-screen -t "Terminal 9" 9
+#chdir git
+screen -t "irssi" 0  irssi
+#chdir 
+#screen -t "root" 1 su -
+#chdir git/django_project
+#screen -t "Django" 2 
+#chdir
+#screen -t "Terminal 3" 3 
+#screen -t "Terminal 4" 4 
+#screen -t "Terminal 5" 5 
+#screen -t "Terminal 6" 6 
+#screen -t "Terminal 7" 7 
+#screen -t "Terminal 8" 8 
+#screen -t "Terminal 9" 9
 #screen -t "MPD" 2 ncmpc
 #screen -t "IRC" 3 irssi
 #screen -t "HTOP" 4 htop
@@ -46,3 +46,5 @@ defbce on    # use current bg color for erased chars
 startup_message off
 #termcapinfo xterm|xterms|xs|rxvt ti@:te@
 defscrollback 2000
+vbell off
+bell_msg "Message from %. Propagating... ^G"

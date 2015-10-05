@@ -115,3 +115,5 @@ URxvt*color14:                 S_base1
 URxvt*color15:                 S_base3
 
 URxvt*iconFile:                /usr/share/icons/Faenza/apps/scalable/xterm-color_32x32.svg
+
+URxvt*cutchars: `"()'*<>[]{|}'"`
