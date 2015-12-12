@@ -169,3 +169,9 @@ export PATH=$PATH:$GOPATH/bin
 #_JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING 
 
 set -o vi
+
+# clear the screen in insert mode with ctrl+l
+bind -m vi-insert "\C-l":clear-screen
+
+# https://forum.golangbridge.org/t/your-best-shell-aliases/1335 @robpike
+#export CDPATH=.:$HOME:$GOROOT/src:$GOPATH/src/github.com:$GOPATH/src/github.com/makpoc

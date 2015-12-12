@@ -76,6 +76,10 @@ getclock()
 
 pacman_updates()
 {
+    # to work properly this function requires an
+    # up-to-date pacman status. This can be
+    # accomplished using the following root cron:
+    # @hourly (date && pacman -Sy) >/var/log/hourly_pacman_updates.log 2>&1
     pacman=$(pacman -Qu | wc -l)
     result=""
     if [ $pacman -eq 0 ]; then

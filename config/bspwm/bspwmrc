@@ -47,7 +47,7 @@ desktop_config focused_frame_opacity 0.2
 bspc rule -a Skype desktop=chat
 bspc rule -a Pidgin desktop=chat
 bspc rule -a Viber desktop=chat
-bspc rule -a Firefox desktop=web
+bspc rule -a Firefox desktop=www
 bspc rule -a Thunderbird desktop=mail
 bspc rule -a Liferea desktop=feeds
 bspc rule -a burp-StartBurp floating=on desktop=term8 center=true

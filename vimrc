@@ -362,3 +362,7 @@ let g:go_highlight_structs = 1
 " save work on focus lost (silent to not complain if the buffer is untitled)
 " nested because "any other autocommands bound to `BufWrite` work as normal"
 au FocusLost * nested silent! wa
+
+" easier buffer switching
+" from http://vim.wikia.com/wiki/VimTip686 -> Switching by number
+nnoremap <F4> :buffers<CR>:buffer<Space>
