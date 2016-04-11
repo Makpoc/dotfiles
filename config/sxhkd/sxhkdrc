@@ -119,20 +119,20 @@ super + shift {1-9,0}
 	bspc node -d $(bspc query -M -m):^{1-9,10}
 
 # -g means grab.
-~button1
-	bspc pointer -g focus
-
-super + button{1-3}
-	bspc pointer -g {move,resize_side,resize_corner}
-
-# -t means track.. TODO
-super + !button{1-3}
-	bspc pointer -t %i %i
-
-# -u is "ungrab".. TODO
-super + @button{1-3}
-	bspc pointer -u
-
+#~button1
+#	bspc pointer -g focus
+#
+#super + button{1-3}
+#	bspc pointer -g {move,resize_side,resize_corner}
+#
+## -t means track.. TODO
+#super + !button{1-3}
+#	bspc pointer -t %i %i
+#
+## -u is "ungrab".. TODO
+#super + @button{1-3}
+#	bspc pointer -u
+#
 # ======================
 # wm independent hotkeys
 # ======================
