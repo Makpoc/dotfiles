@@ -92,6 +92,7 @@ Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'myusuf3/numbers.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Auto-Pairs'
+Plugin 'christophermca/meta5'
 
 filetype plugin indent on
 
@@ -148,7 +149,8 @@ set completeopt=menu,menuone
 set background=dark
 "colorscheme solarized
 " from here: https://github.com/jpo/vim-railscasts-theme
-colorscheme railscasts
+" colorscheme railscasts
+colorscheme meta5
 
 
 " <Leader> remap
