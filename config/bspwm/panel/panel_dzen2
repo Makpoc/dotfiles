@@ -77,11 +77,18 @@ while read -r line ; do
                     [OoFfUu]*)
                         # desktops
                         name=${item#?}
+                        focus=${name}
                         case $item in
                             O*)
                                 # focused occupied desktop
                                 FG=$COLOR_FOCUSED_OCCUPIED_FG
                                 BG=$COLOR_FOCUSED_OCCUPIED_BG
+                                # if we clicked on an already focused window - focuse the last one instead
+                                #echo "name: $(bspc query -D -d $name)"
+                                #echo "focused: $(bspc query -D -d focused)"
+                                if [ "$(bspc query -D -d $name)" == "$(bspc query -D -d focused)" ]; then 
+                                    focus="last"
+                                fi
                                 ;;
                             F*)
                                 # focused free desktop
@@ -109,7 +116,7 @@ while read -r line ; do
                                 BG=$COLOR_URGENT_BG
                                 ;;
                         esac
-                        wm_infos="${wm_infos}^fg(${FG})^bg(${BG})^ca(1, bspc desktop -f ${name})^ca(2, bspc desktop -d ${name})${PADDING}${name}${PADDING}^ca()^ca()^bg()^fg()"
+                        wm_infos="${wm_infos}^fg(${FG})^bg(${BG})^ca(1, bspc desktop -f ${focus})${PADDING}${name}${PADDING}^ca()^ca()^bg()^fg()"
                         ;;
                 esac
                 shift

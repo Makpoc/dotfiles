@@ -107,8 +107,14 @@ super + ctrl + {1-9}
 	bspc node -r 0.{1-9}
 
 # Select the desktop on the current monitor
+# if we a re-selecting the current desktop - focus the last selected
 super + {1-9,0}
-	bspc desktop $(bspc query -M -m):^{1-9,10} -f
+    desktop_n={1-9,0}; \
+    if [ "$(bspc query -D -d focused)" == "$(bspc query -D -d focused:^${desktop_n})" ] ; then \
+        bspc desktop last -f; \
+    else \
+        bspc desktop focused:^${desktop_n} -f; \
+    fi 
 
 # Select the desktop on the other monitor (dual monitor setup only!)
 super + {q,w,e,r,t,y,u,i}
