@@ -18,7 +18,7 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
 flavor=${1:-dzen2}
 
-bspc control --subscribe > "$PANEL_FIFO" &
+bspc subscribe > "$PANEL_FIFO" &
 xtitle -sf 'T[%s]' > "$PANEL_FIFO" &
 clock -i 1 -sf 'S[%a, %d %b] [%H:%M:%S]' > "$PANEL_FIFO" &
 ./panel_info.sh > "$PANEL_FIFO" &

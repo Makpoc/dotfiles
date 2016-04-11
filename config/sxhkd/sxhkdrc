@@ -12,14 +12,18 @@ super + Escape
 
 # Restoring the windows produces strange wholes.. TODO
 #super + alt + {_,shift + }Escape
-#    {bspc query -T > "$BSPWM_TREE"; \
-#    bspc query -H > "$BSPWM_HISTORY"; \
-#    bspc quit,\
-#    bspc quit 1}
+##    {bspc query -T > "$BSPWM_TREE"; \
+##    bspc query -H > "$BSPWM_HISTORY"; \
+##    bspc quit,\
+##    bspc quit 1}
+## or
+#     {bspc wm -d > "$BSPWM_DUMP",
+#     bspc quit 1}
+#
 
 # Close/kill the current window
 super + shift + Q
-	bspc window -c
+	bspc node -c
 
 # Change window gap
 super + {minus,equal}
@@ -27,54 +31,54 @@ super + {minus,equal}
 
 # Balance the split rations of window
 super + b
-	bspc desktop -B
+	bspc node @/ -B
 
 # Toggle floating/fullscreen for the focused window
 super + {s,f}
-	bspc window -t {floating,fullscreen}
+	bspc node -t ~{floating,fullscreen}
 
 # focus the last window/desktop
 super + {grave,Tab}
-	bspc {window,desktop} -f last
+	bspc {node,desktop} -f last
 
 # Swap this windows with the last focused
 super + apostrophe
-	bspc window -s last
+	bspc node -s last
 
 # Cycle through the focus history, without adding new entries in it
 # See bspc query -H for history details
 super + {o,i}
 	bspc control --record-history off; \
-	bspc window {older,newer} -f; \
+	bspc node {older,newer} -f; \
 	bspc control --record-history on
 
 # Cycle through the focus history similar to above.
 # Stays on the same desktop
 super + {_,shift + }c
-	bspc window -f {next,prev}
+	bspc node -f {next,prev}
 
 #super + m
-#	bspc window -s biggest
+#	bspc node -s biggest
 
-# focus/move the focused window to to the given direction - lazy style
+# focus/move the focused window to the given direction - lazy style
 super + {_,shift + }{Left,Down,Up,Right}
-	bspc window -{f,s} {left,down,up,right}
+	bspc node -{f,s} {west,south,north,east}
 
-# focus/move the focused window to to the given direction - vim style
+# focus/move the focused window to the given direction - vim style
 super + {_,shift + }{h,j,k,l}
-	bspc window -{f,s} {left,down,up,right}
+	bspc node -{f,s} {west,south,north,east}
 
 # Rotate the windows 90 degrees in any direction
 super + {comma,period}
-	bspc desktop -R {90,270}
+	bspc node @/ -R {90,270}
 
-# focus left/right monitor
+# focus west/east monitor
 super + bracket{left,right}
-    bspc monitor -f {left,right}
+    bspc monitor -f {west,east}
 
-# move window to left/right monitor
+# move window to west/east monitor
 super + shift + bracket{left,right}
-    bspc window --to-monitor {left,right} -f
+    bspc node --to-monitor {west,east} -f
 
 # Goes back and forward in over the occupied desktops on the current Monitor
 super + {p,n}
@@ -82,25 +86,25 @@ super + {p,n}
 
 # Presel window for splitting
 super + ctrl + {h,j,k,l}
-	bspc window -p {left,down,up,right}
+	bspc node -p ~{west,south,north,east}
 
 # Move window into presel position
 super + ctrl + {a,s,d,f}
-    bspc window -w {left,down,up,right}
+    bspc node -w {west,south,north,east}
 
 super + ctrl + {_,shift + }space
-	bspc {window -p cancel,desktop -c}
+	bspc {node -p cancel,desktop -c}
 
 # resize the current window
 super + alt + {h,j,k,l}
-	bspc window -e {left -10,down +10,down -10,left +10}
+	bspc node {@west -10,@south +10,@south -10,@west +10} -r
 
 #super + alt + shift + {h,j,k,l}
-#	bspc window -e {right -10,up +10,down -10,left +10}
+#	bspc node -e {east -10,up +10,south -10,west +10}
 
 # Sets the splitting ration of the selected window (0<Ratio<1)
 super + ctrl + {1-9}
-	bspc window -r 0.{1-9}
+	bspc node -r 0.{1-9}
 
 # Select the desktop on the current monitor
 super + {1-9,0}
@@ -112,7 +116,7 @@ super + {q,w,e,r,t,y,u,i}
 
 # Move window from one desktop to another within the same monitor
 super + shift {1-9,0}
-	bspc window -d $(bspc query -M -m):^{1-9,10}
+	bspc node -d $(bspc query -M -m):^{1-9,10}
 
 # -g means grab.
 ~button1
@@ -129,9 +133,9 @@ super + !button{1-3}
 super + @button{1-3}
 	bspc pointer -u
 
-#
+# ======================
 # wm independent hotkeys
-#
+# ======================
 
 # Start terminal
 super + Return
@@ -169,7 +173,7 @@ super + Prior
 super + Pause
     amixer set Master toggle
 
-# Volume down
+# Volume down 
 super + shift + Next
     amixer set Master 1-
 

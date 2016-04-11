@@ -15,7 +15,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 #xscreensaver &
 exec xautolock -detectsleep -locker /home/makpoc/scripts/i3lock/i3lock_blur -time 5 &
-#compton &
+compton &
 xsetroot -cursor_name left_ptr &
 # created service
 #urxvtd -q -f -o
