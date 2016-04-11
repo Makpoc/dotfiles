@@ -46,7 +46,7 @@ alias mountcd='sudo mount -t iso9660 -o ro' # /dev/sr0 ./cdrom
 alias gstat='git status'
 alias cdgit='cd ~makpoc/git'
 alias gsvndiff="git diff git-svn HEAD"
-alias gl="git log --graph --abbrev-commit --decorate --date=relative --format=:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gpull="git stash save 'gpull' && git pull --rebase && git stash pop"
 
 # rdesktop:
@@ -69,3 +69,6 @@ alias rskype='ranger ~/Downloads/Skype/'
 # Misc
 alias lynx='lynx --accept_all_cookies'
 alias cal='cal -y -m --color=always'
+
+# livestreamer
+alias livestreamer='livestreamer --player mpv'
