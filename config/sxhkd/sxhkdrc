@@ -90,7 +90,7 @@ super + ctrl + {h,j,k,l}
 
 # Move window into presel position
 super + ctrl + {a,s,d,f}
-    bspc node -w {west,south,north,east}
+    bspc node -n {west,south,north,east}
 
 super + ctrl + {_,shift + }space
 	bspc {node -p cancel,desktop -c}
