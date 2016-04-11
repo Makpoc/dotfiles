@@ -97,7 +97,7 @@ super + ctrl + {_,shift + }space
 
 # resize the current window
 super + alt + {h,j,k,l}
-	bspc node {@west -10,@south +10,@south -10,@west +10} -r
+	bspc node {@west -r -10,@south -r +10,@south -r -10,@west -r +10}
 
 #super + alt + shift + {h,j,k,l}
 #	bspc node -e {east -10,up +10,south -10,west +10}
