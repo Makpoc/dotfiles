@@ -124,21 +124,6 @@ super + {q,w,e,r,t,y,u,i}
 super + shift {1-9,0}
 	bspc node -d $(bspc query -M -m):^{1-9,10}
 
-# -g means grab.
-#~button1
-#	bspc pointer -g focus
-#
-#super + button{1-3}
-#	bspc pointer -g {move,resize_side,resize_corner}
-#
-## -t means track.. TODO
-#super + !button{1-3}
-#	bspc pointer -t %i %i
-#
-## -u is "ungrab".. TODO
-#super + @button{1-3}
-#	bspc pointer -u
-#
 # ======================
 # wm independent hotkeys
 # ======================
@@ -162,20 +147,31 @@ super + shift + d
 ctrl + alt + l
     xautolock -locknow
 
-# MEDIA - MPD
+## MEDIA - MPD
 # Pause/Resume MPD playback (using Pause/Break)
-Pause
-    mpc toggle
-    
-# Next song (xev shows pagedown as Next)
+#Pause
+#    mpc toggle
+#    
+## Next song (xev shows pagedown as Next)
+#super + Next
+#    mpc next
+#
+## Previous song (xev shows pageup as Prior)
+#super + Prior
+#    mpc prev
+
+## MEDIA - Spotify
+# Thanks to https://gist.github.com/Makpoc/086cdd5ba1e3da8820782be9e2170182
+Pause 
+    ~/bin/spotify-control play
+
 super + Next
-    mpc next
+    ~/bin/spotify-control next
 
-# Previous song (xev shows pageup as Prior)
 super + Prior
-    mpc prev
+    ~/bin/spotify-control prev
 
-# MEDIA - ALSA
+## MEDIA - ALSA
 super + Pause
     amixer set Master toggle
 

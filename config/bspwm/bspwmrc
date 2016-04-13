@@ -64,9 +64,10 @@ bspc rule -a burp-StartBurp floating=on desktop=term8 center=true
 #bspc rule -a feh floating=on manage=off
 bspc rule -a jetbrains-pycharm desktop=II
 #bspc rule -a Eclipse desktop=I #running 2 eclipses is cucumbersome (preferences window of second one is shown on desktop I)
-bspc rule -a ncmpcpp desktop=V
+#bspc rule -a ncmpcpp desktop=V
 bspc rule -a htop desktop=V
-bspc rule -a alsa desktop=V
+bspc rule -a spotify desktop=V
+#bspc rule -a alsa desktop=V
 # used in left click on pacman (dzen2)
 bspc rule -a pacup floating=on center=true
 
@@ -92,11 +93,13 @@ unclutter -idle 5 -noevents -root &
 fbxkb & # icon
 volumeicon & # icon
 skype & # icon
+viber & # icon
 pidgin & # icon
 liferea & # icon
 thunderbird &
 firefox &
 shutter & # icon
-urxvtc -name ncmpcpp -e ncmpcpp &
+#urxvtc -name ncmpcpp -e ncmpcpp &
+#urxvtc -name alsa -e alsamixer &
 urxvtc -name htop -e htop &
-urxvtc -name alsa -e alsamixer &
+spotify &
