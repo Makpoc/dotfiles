@@ -161,15 +161,15 @@ ctrl + alt + l
 #    mpc prev
 
 ## MEDIA - Spotify
-# Thanks to https://gist.github.com/Makpoc/086cdd5ba1e3da8820782be9e2170182
+# AUR - playerctl
 Pause 
-    ~/bin/spotify-control play
+    playerctl play-pause
 
 super + Next
-    ~/bin/spotify-control next
+    playerctl next
 
 super + Prior
-    ~/bin/spotify-control prev
+    playerctl previous 
 
 ## MEDIA - ALSA
 super + Pause

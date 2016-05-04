@@ -1,25 +1,12 @@
 # remote sessions
-alias therapy='ssh root@therapy'
-alias app1='ssh root@app1'
-alias app2='ssh root@app2 -p10022'
-alias app5='ssh root@app5 -p10022'
-alias app3='ssh root@app3'
-alias app4='ssh root@app4'
-alias aix='ssh root@thames'
-alias thames='ssh root@thames'
-alias morphine='ssh root@morphine'
-alias inflames='ssh root@inflames'
-alias hpux='ssh root@hp01'
-alias hp01='ssh root@hp01'
-alias stback='ssh root@10.232.17.6'
-alias stedge='ssh root@10.232.17.7'
+alias st1='ssh root@10.134.64.123'
+alias st2='ssh root@10.134.64.124'
 
 # colorize
 alias dmesg='dmesg --color'
 alias grep='grep -n --color=auto'
 alias egrep='egrep -n --color=auto'
 alias ls='ls --color -F'
-alias pls='sudo $(fc -ln -1)'
 
 # commands
 alias vless='/usr/share/vim/vim74/macros/less.sh'
