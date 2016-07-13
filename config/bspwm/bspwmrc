@@ -70,6 +70,7 @@ bspc rule -a spotify desktop=V
 #bspc rule -a alsa desktop=V
 # used in left click on pacman (dzen2)
 bspc rule -a pacup floating=on center=true
+bspc rule -a zathura floating=on
 
 #desktop_config border_width 2
 #desktop_config window_gap 4

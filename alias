@@ -1,4 +1,5 @@
 # remote sessions
+alias ssh='TERM=xterm ssh'
 alias st1='ssh root@10.134.64.123'
 alias st2='ssh root@10.134.64.124'
 
