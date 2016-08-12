@@ -51,26 +51,22 @@ desktop_config focused_frame_opacity 0.2
 
 bspc config click_to_focus true
 # Rules
-#bspc rule -a Skype pseudo_tiled=on desktop=chat
 bspc rule -a Skype desktop=chat
 bspc rule -a Pidgin desktop=chat
 bspc rule -a Viber desktop=chat
 bspc rule -a Firefox desktop=www
 bspc rule -a Thunderbird desktop=mail
 bspc rule -a Liferea desktop=feeds
-bspc rule -a burp-StartBurp floating=on desktop=term8 center=true
-#bspc rule -a Conky sticky=on manage=off lower=on
-#bspc rule -a astime sticky=on
-#bspc rule -a feh floating=on manage=off
-bspc rule -a jetbrains-pycharm desktop=II
+bspc rule -a burp-StartBurp state=floating desktop=term8 center=true
+bspc rule -a jetbrains-pycharm monitor=HDMI1 desktop=II
+bspc rule -a jetbrains-idea monitor=HDMI1 desktop=I
 #bspc rule -a Eclipse desktop=I #running 2 eclipses is cucumbersome (preferences window of second one is shown on desktop I)
-#bspc rule -a ncmpcpp desktop=V
-bspc rule -a htop desktop=V
-bspc rule -a spotify desktop=V
-#bspc rule -a alsa desktop=V
+bspc rule -a htop monitor=HDMI1 desktop=V
+bspc rule -a spotify monitor=HDMI1 desktop=V
 # used in left click on pacman (dzen2)
-bspc rule -a pacup floating=on center=true
-bspc rule -a zathura floating=on
+bspc rule -a pacup state=floating center=true
+bspc rule -a zathura state=tiled
+bspc rule -a libreoffice state=tiled
 
 #desktop_config border_width 2
 #desktop_config window_gap 4
