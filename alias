@@ -60,3 +60,6 @@ alias cal='cal -y -m --color=always'
 
 # livestreamer
 alias livestreamer='livestreamer --player mpv'
+
+# work
+alias prog='cd ~/workspace/securetransport-program'

@@ -35,7 +35,7 @@ super + b
 
 # Toggle floating/fullscreen for the focused window
 super + {s,f}
-	bspc node -t ~{floating,fullscreen}
+	bspc node -t '~{floating,fullscreen}'
 
 # focus the last window/desktop
 super + {grave,Tab}
@@ -86,7 +86,7 @@ super + {p,n}
 
 # Presel window for splitting
 super + ctrl + {h,j,k,l}
-	bspc node -p ~{west,south,north,east}
+	bspc node -p '~{west,south,north,east}'
 
 # Move window into presel position
 super + ctrl + {a,s,d,f}
@@ -109,12 +109,15 @@ super + ctrl + {1-9}
 # Select the desktop on the current monitor
 # if we a re-selecting the current desktop - focus the last selected
 super + {1-9,0}
-    desktop_n={1-9,0}; \
-    if [ "$(bspc query -D -d focused)" == "$(bspc query -D -d focused:^${desktop_n})" ] ; then \
-        bspc desktop last -f; \
-    else \
-        bspc desktop focused:^${desktop_n} -f; \
-    fi 
+    bspc desktop focused:^{1-9,0} -f
+## The following does not work with zsh ;(
+#    desktop_n='{1-9,0}'; \
+#    if [ `bspc query -D -d focused` == `bspc query -D -d focused:^{1-9,0}` ] ; then \
+#        bspc desktop last -f; \
+#    else \
+#        # quoting due to zsh interpration
+#        bspc desktop focused:^{1-9,0} -f; \
+#    fi 
 
 # Select the desktop on the other monitor (dual monitor setup only!)
 super + {q,w,e,r,t,y,u,i}
@@ -146,6 +149,16 @@ super + shift + d
 #    xscreensaver-command -lock
 ctrl + alt + l
     xautolock -locknow
+
+# Print screen
+# Without the sleep scrot crashes with:
+# giblib error: couldn't grab keyboard:Resource temporarily unavailable
+Print
+    sleep 0.2; \
+    scrot -s $HOME/'Pictures/Screenshots/%Y-%m-%d_$wx$h_scrot.png'
+
+control + Print
+    scrot $HOME/'Pictures/Screenshots/%Y-%m-%d_$wx$h_scrot.png'
 
 ## MEDIA - MPD
 # Pause/Resume MPD playback (using Pause/Break)

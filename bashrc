@@ -161,7 +161,7 @@ fi
 # Go
 export GOPATH=~/git/go
 export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 # Java
 # IntelliJ fix for popup/floating windows. See http://awesome.naquadah.org/wiki/Problems_with_Java for more problems/solutions
