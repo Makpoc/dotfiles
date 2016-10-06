@@ -93,3 +93,5 @@ zshconf="$HOME/.config/zsh"
 [[ -d $zshconf ]] && for f in $zshconf/*.zsh; do source "$f"; done 
 
 # Experimental:
+# first: pacman -S zsh-syntax-highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -60,7 +60,6 @@ bspc rule -a Liferea desktop=feeds
 bspc rule -a burp-StartBurp state=floating desktop=term8 center=true
 bspc rule -a jetbrains-pycharm monitor=HDMI1 desktop=II
 bspc rule -a jetbrains-idea monitor=HDMI1 desktop=I
-#bspc rule -a Eclipse desktop=I #running 2 eclipses is cucumbersome (preferences window of second one is shown on desktop I)
 bspc rule -a htop monitor=HDMI1 desktop=V
 bspc rule -a spotify monitor=HDMI1 desktop=V
 # used in left click on pacman (dzen2)
@@ -90,13 +89,9 @@ unclutter -idle 5 -noevents -root &
 fbxkb & # icon
 volumeicon & # icon
 skype & # icon
-viber & # icon
 pidgin & # icon
 liferea & # icon
 thunderbird &
 firefox &
 shutter & # icon
-#urxvtc -name ncmpcpp -e ncmpcpp &
-#urxvtc -name alsa -e alsamixer &
-urxvtc -name htop -e htop &
 spotify &

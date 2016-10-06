@@ -155,10 +155,10 @@ ctrl + alt + l
 # giblib error: couldn't grab keyboard:Resource temporarily unavailable
 Print
     sleep 0.2; \
-    scrot -s $HOME/'Pictures/Screenshots/%Y-%m-%d_$wx$h_scrot.png'
+    scrot -s $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
 
 control + Print
-    scrot $HOME/'Pictures/Screenshots/%Y-%m-%d_$wx$h_scrot.png'
+    scrot $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
 
 ## MEDIA - MPD
 # Pause/Resume MPD playback (using Pause/Break)
