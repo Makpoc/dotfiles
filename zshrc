@@ -95,3 +95,5 @@ zshconf="$HOME/.config/zsh"
 # Experimental:
 # first: pacman -S zsh-syntax-highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export CDPATH=$CDPATH:$GOPATH/src
