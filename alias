@@ -57,9 +57,11 @@ alias rskype='ranger ~/Downloads/Skype/'
 # Misc
 alias lynx='lynx --accept_all_cookies'
 alias cal='cal -y -m --color=always'
+alias vi=vim
 
 # livestreamer
 alias livestreamer='livestreamer --player mpv'
 
 # work
 alias stws='cd ~/workspace/securetransport-program'
+

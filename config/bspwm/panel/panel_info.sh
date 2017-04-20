@@ -125,9 +125,9 @@ while :; do
     else
         PACMAN_TIMER=$((PACMAN_TIMER + 1))
     fi
-    echo -n $PACMAN_VAL
-    #echo $(getclock)
-    echo
+   # echo -n $PACMAN_VAL
+#    echo $(getclock)
+#    echo
 
     sleep $UPDATE_INTERVAL
 done

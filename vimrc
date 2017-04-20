@@ -233,10 +233,10 @@ let g:ucm_use_ultisnips_completer = 1
 let g:EclimCompletionMethod = 'omnifunc'
 noremap ,d :YcmCompleter GoTo<CR>
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
 
 "Jedi for argument completion only
 " {
