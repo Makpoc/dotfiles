@@ -21,10 +21,12 @@ scrot $IMAGE
 # 12.5x12.5% -> 800x800% with blur 0x2 is another seconds faster, but too blurred..
 convert $IMAGE -level 0%,100%,0.6 -resize 25x25% -blur 0x4 -resize 400x400% - | composite -geometry +847+506 $(dirname $0)/lock.png - - | composite -geometry +2040+0 $(dirname $0)/dragon_lock.png - $IMAGE
 
+(sleep 4s && xset dpms force off) &
+
 if [ $? -eq 0 ]; then
-    i3lock -e -n -i $IMAGE
+    i3lock -f -e -n -i $IMAGE
 else 
-    i3lock -e -n -c 000000 
+    i3lock -f -e -n -c 000000 
 fi
 
 rm $IMAGE
