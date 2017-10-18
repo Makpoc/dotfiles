@@ -27,6 +27,7 @@ setopt magic_equal_subst    # enable path autocompletion after =
 setopt autocd               # 'cd /usr/' is now '/usr/'
 
 #WORDCHARS=' *?_-.[]~=&;!#$%^90{}<>'  # what kill word shoud delete
+WORDCHARS='*?_-~=&!%^90'  # what kill word shoud delete
 
 # History
 setopt hist_ignore_all_dups inc_append_history
@@ -97,3 +98,4 @@ zshconf="$HOME/.config/zsh"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export CDPATH=$CDPATH:$GOPATH/src
+source /usr/share/nvm/init-nvm.sh

@@ -40,7 +40,7 @@ alias gpull="git stash save 'gpull' && git pull --rebase && git stash pop"
 # rdesktop:
 resolution='1920x1050'
 alias r="rdesktop -g $resolution -u vmuser -r disk:remotedisk=/home/makpoc/SharedFolder/"
-alias r127="rdesktop -g $resolution -u vmuser -p secret123 10.134.64.127 -r disk:remotedisk=/home/makpoc/SharedFolder/"
+alias r127="rdesktop -g $resolution -u vmuser -p secret123 10.134.64.127 -r disk:remotedisk=/mnt/SharedFolder"
 
 # pacman
 alias pacup="sudo pacman -Syu"
@@ -63,5 +63,5 @@ alias vi=vim
 alias livestreamer='livestreamer --player mpv'
 
 # work
-alias stws='cd ~/workspace/securetransport-program'
+alias ws='cd ~/workspace/'
 
