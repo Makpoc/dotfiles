@@ -76,9 +76,7 @@ if has("autocmd")
   augroup END
 
 else
-
   set autoindent		" always set autoindenting on
-
 endif " has("autocmd")
 
 " Vundle (see /usr/share/vundle/vimrc.sample)
@@ -87,12 +85,24 @@ filetype off
 call vundle#rc()
 
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'fatih/vim-go'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
+"Plugin 'fatih/vim-go'
+"Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'myusuf3/numbers.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'Auto-Pairs'
+Plugin 'moll/vim-node'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Syntastic'
+Plugin 'mtscout6/syntastic-local-eslint.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'crusoexia/vim-javascript-lib'
+Plugin 'ternjs/tern_for_vim'
+
+" Themes
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'christophermca/meta5'
+Plugin 'jacoborus/tender.vim'
 
 filetype plugin indent on
 
@@ -100,12 +110,12 @@ filetype plugin indent on
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
+"if !exists(":DiffOrig")
+"  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+"		  \ | wincmd p | diffthis
+"endif
 
-" The following fixes mappings like <A-j>
+" The following fixes mappings like <A-j> (move up-down)
 let c='a'
 while c <= 'z'
   exec "set <A-".c.">=\e".c
@@ -113,11 +123,6 @@ while c <= 'z'
   let c = nr2char(1+char2nr(c))
 endw
 set ttimeout ttimeoutlen=5
-
-
-" Pathogen config
-execute pathogen#infect()
-call pathogen#helptags() " generate helptags for everything in 'runtimepath'
 
 " general settings
 set t_Co=256
@@ -132,10 +137,10 @@ set nobackup
 
 " Control character highlighting
 " Visible after :set list
-"set list
+set list
 "set listchars=tab:»\ ,eol:↵
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
-set tabstop=4
+set listchars=tab:»\ ,trail:.,extends:#,space:·,eol:¬
+set tabstop=2
 set shiftwidth=4
 set expandtab
 set ignorecase
@@ -150,8 +155,7 @@ set background=dark
 "colorscheme solarized
 " from here: https://github.com/jpo/vim-railscasts-theme
 " colorscheme railscasts
-colorscheme meta5
-
+colorscheme tender
 
 " <Leader> remap
 let mapleader = ","
@@ -207,8 +211,16 @@ nnoremap <leader>P "*P
 nnoremap <leader>y "+y
 nnoremap <leader>Y "*Y
 
+" pangloss/vim-javascript
+let g:javascript_plugin_jsdoc = 1
+
+autocmd FileType javascript setlocal conceallevel=1
+
+let g:javascript_conceal_function               = "ƒ"
+let g:javascript_conceal_arrow_function         = "⇒"
+
 " NERDTree
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=0
 map <F2> :NERDTreeToggle<CR>
 map <F3> :NERDTreeFind<CR>
 
@@ -255,9 +267,9 @@ noremap ,d :YcmCompleter GoTo<CR>
 " }
 
 "UltiSnips
-let g:UltiSnipsExpandTrigger = "<C-j>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+"let g:UltiSnipsExpandTrigger = "<C-j>"
+"let g:UltiSnipsJumpForwardTrigger = "<tab>"
+"let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 "Conque
 "nnoremap <F4> :Conque
@@ -265,9 +277,9 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " htmldjango-omnicomplete stuff
 "au FileType htmldjango set omnifunc=htmldjangocomplete#CompleteDjango
 "au FileType python.django set omnifunc=pythoncomplete#Complete
-let g:htmldjangocomplete_html_flavour = 'html401s'
-au FileType htmldjango inoremap {% {% %}<left><left><left>
-au FileType htmldjango inoremap {{ {{ }}<left><left><left>
+"let g:htmldjangocomplete_html_flavour = 'html401s'
+"au FileType htmldjango inoremap {% {% %}<left><left><left>
+"au FileType htmldjango inoremap {{ {{ }}<left><left><left>
 
 " Try autoinserting brackets for other types as well:
 ""inoremap {<CR> {<CR>}<ESC>O
@@ -276,10 +288,6 @@ au FileType htmldjango inoremap {{ {{ }}<left><left><left>
 "iinoremap " ""<left>
 "iinoremap ' ''<left>
 
-" Scheduler log highlight
-au! BufNewFile,BufRead scheduler*.txt set syntax=sclog
-" wiki highlight
-au! BufNewFile,BufRead *.wiki set syntax=wiki
 " log4j
 au! BufRead,BufNewFile catalina.out,*.out,*.out.*,*.log,*.log.* setf log
 
@@ -299,66 +307,57 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#bufferline#overwrite_variables = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-
+let g:airline_theme = 'tender'
+let g:airline#extensions#ale#enabled = 1
 " tagbar
 "autocmd FileType * nested :call tagbar#autoopen(0)  " open tagbar on supported filetypes
 nmap <F8> :TagbarToggle<CR>
 
 " CommandT
-let g:CommandTMatchWindowAtTop = 1
-let g:CommandTMaxHeight = 20
+"let g:CommandTMatchWindowAtTop = 1
+"let g:CommandTMaxHeight = 20
 " If backspace does not work in CommandT command line - change xfce4
 " backspace settings to ASCII DEL
 
 " Take care of django files
-autocmd BufNewFile,BufRead *.html call s:FThtmldjango()
-autocmd BufNewFile,BufRead *.py call s:FTpydjango()
-func! s:FThtmldjango()
-    let n = 1
-    while n < 30 && n < line("$")
-        if getline(n) =~ '.*{%.*'
-            set ft=htmldjango
-            return
-        endif
-        let n = n + 1
-    endwhile
-    set ft=html
-endfunc
+"autocmd BufNewFile,BufRead *.html call s:FThtmldjango()
+"autocmd BufNewFile,BufRead *.py call s:FTpydjango()
+"func! s:FThtmldjango()
+"    let n = 1
+"    while n < 30 && n < line("$")
+"        if getline(n) =~ '.*{%.*'
+"            set ft=htmldjango
+"            return
+"        endif
+"        let n = n + 1
+"    endwhile
+"    set ft=html
+"endfunc
+"
+"func! s:FTpydjango()
+"    let n = 1
+"    while n < 30 && n < line("$")
+"        if getline(n) =~ '.*django.*'
+"            set ft=python.django
+"            return
+"        endif
+"        let n = n + 1
+"    endwhile
+"    set ft=python
+"endfunc
 
-func! s:FTpydjango()
-    let n = 1
-    while n < 30 && n < line("$")
-        if getline(n) =~ '.*django.*'
-            set ft=python.django
-            return
-        endif
-        let n = n + 1
-    endwhile
-    set ft=python
-endfunc
 
-"Experiments
-" Go
-" fix GoDoc (mapped to K)
-source ~/.vim/bundle/vim-go/autoload/go/doc.vim
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
-" For GoDoc to be only 20 lines - change:
-"   change all _leftabove new_ in ~/.vim/bundle/vim-go/ftplugin/go/commands.vim
-"   to _leftabove 20new_
+let g:syntastic_javascript_checkers=['eslint']
 
-au FileType go nmap <Leader>s <Plug>(go-implements)
-au FileType go nmap <Leader>r <Plug>(go-rename)
-au FileType go nmap <Leader>c <Plug>(go-coverage)
-au FileType go nmap <Leader>u <Plug>(go-build)
-au FileType go nmap <Leader>i <Plug>(go-install)
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-au FileType go nmap <Leader>gd <Plug>(go-def)
-
-let g:go_fmt_command = "goimports"
-
-"let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
+" tern
+let g:tern_show_argument_hints='on_hold'
+let g:tern_map_keys=1
 
 " others
 " save work on focus lost (silent to not complain if the buffer is untitled)
