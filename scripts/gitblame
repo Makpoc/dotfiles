@@ -153,7 +153,7 @@ from sys import argv
 
 def lines_starting_with(all_lines, prefix):
     grepped = [l for l in all_lines if l.startswith(prefix)]
-    stripped = [l.split(prefix)[1] for l in grepped]
+    stripped = [l.split(prefix, 1)[1] for l in grepped]
     return stripped
 
 

@@ -98,11 +98,16 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'crusoexia/vim-javascript-lib'
 Plugin 'ternjs/tern_for_vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'heavenshell/vim-jsdoc'
 
 " Themes
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'christophermca/meta5'
 Plugin 'jacoborus/tender.vim'
+Plugin 'glortho/feral-vim'
 
 filetype plugin indent on
 
@@ -141,7 +146,7 @@ set list
 "set listchars=tab:»\ ,eol:↵
 set listchars=tab:»\ ,trail:.,extends:#,space:·,eol:¬
 set tabstop=2
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 set ignorecase
 set smartcase
@@ -305,10 +310,12 @@ let g:Powerline_symbols='unicode'
 " airline settings
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#tabline#show_buffers = 1
 "let g:airline#extensions#bufferline#overwrite_variables = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_theme = 'tender'
-let g:airline#extensions#ale#enabled = 1
+
 " tagbar
 "autocmd FileType * nested :call tagbar#autoopen(0)  " open tagbar on supported filetypes
 nmap <F8> :TagbarToggle<CR>
@@ -346,6 +353,11 @@ nmap <F8> :TagbarToggle<CR>
 "    set ft=python
 "endfunc
 
+" vim-jsdoc
+let g:jsdoc_enable_es6 = 1
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_input_description = 1
+
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -366,4 +378,7 @@ au FocusLost * nested silent! wa
 
 " easier buffer switching
 " from http://vim.wikia.com/wiki/VimTip686 -> Switching by number
-nnoremap <F4> :buffers<CR>:buffer<Space>
+nnoremap <leader>b :buffers<CR>:buffer<Space>
+
+" vim-gitgutter
+nmap <Leader>hv <Plug>GitGutterPreviewHunk
