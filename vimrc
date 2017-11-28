@@ -102,6 +102,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'heavenshell/vim-jsdoc'
+Plugin 'terryma/vim-multiple-cursors'
 
 " Themes
 Plugin 'altercation/vim-colors-solarized'
@@ -370,6 +371,9 @@ let g:syntastic_javascript_checkers=['eslint']
 " tern
 let g:tern_show_argument_hints='on_hold'
 let g:tern_map_keys=1
+
+" ctrlp
+let g:ctrlp_custom_ignore = 'node_modules'
 
 " others
 " save work on focus lost (silent to not complain if the buffer is untitled)
