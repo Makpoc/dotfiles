@@ -1,7 +1,7 @@
 [bar/top]
 monitor = ${env:MONITOR:eDP-1}
 width = 100%
-height = 22 
+height = 22
 offset-x = 0
 offset-y = 1
 ;bottom = true
@@ -13,16 +13,17 @@ underline-size = 1
 underline-color = #aaa
 
 spacing = 0
-padding-left = 2 
+padding-left = 2
 padding-right = 0
-module-margin-left = 0 
+module-margin-left = 0
 module-margin-right = 0
 
-font-0 = FontAwesome:size=10;0
+;font-0 = FontAwesome:size=10;0
+font-0 = Font Awesome 5 Free:size=8:antialias=true:style=solid
 font-1 = Noto Sans:pixelsize=10;0
 font-2 = siji:pixelsize=10;0
 
-modules-left = bspwm 
+modules-left = bspwm
 modules-center = xwindow
 modules-right = battery volume date powermenu
 
@@ -50,15 +51,15 @@ fuzzy-match = true
 ; Default: true
 pin-workspaces = false
 
-ws-icon-0 = web;
-ws-icon-1 = code;
+ws-icon-0 = web;
+ws-icon-1 = code;
 ws-icon-2 = term;
-ws-icon-3 = chat;
-ws-icon-4 = code;
+ws-icon-3 = chat;
+ws-icon-4 = code;
 ws-icon-5 = music;
 ws-icon-6 = feed;
-ws-icon-7 = mail;
-ws-icon-default = 
+ws-icon-7 = mail;
+ws-icon-default = 
 
 format = <label-monitor> <label-state> <label-mode>
 
@@ -93,7 +94,7 @@ interval = 1.0
 
 ; See "man date" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
-date = %a %b %d, 
+date = %a %b %d,
 
 ; Optional time format
 time = %H:%M:%S
@@ -112,7 +113,7 @@ format-padding = 3
 
 [module/padding]
 type = custom/text
-content = 	 
+content = 	
 content-foreground = #00000000
 content-background = #55000000
 
@@ -186,7 +187,7 @@ ramp-headphones-0 = 
 ;exec = /home/gamehelp16/Documents/np
 ;interval = 1
 ;
-;format = <label>   
+;format = <label>
 ;;format-background = #dd00c6e0
 ;;format-foreground = #fff
 ;;format-padding = 4
@@ -196,14 +197,14 @@ ramp-headphones-0 = 
 [module/powermenu]
 type = custom/menu
 
-label-open =   
+label-open = 
 ;label-open-background = #dd0000
 ;label-open-foreground = #fff
 label-close = cancel
 ;label-close-background = #dd0000
 ;label-close-foreground = #fff
-label-open-padding = 4 
-label-close-padding = 3 
+label-open-padding = 4
+label-close-padding = 3
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
@@ -212,11 +213,11 @@ menu-0-1-exec = menu-open-2
 menu-0-0-padding = 3
 menu-0-1-padding = 3
 
-menu-1-0 = reboot?  
+menu-1-0 = reboot?
 menu-1-0-exec = sudo reboot
 menu-1-0-padding = 3
 
-menu-2-0 = power off?  
+menu-2-0 = power off?
 menu-2-0-exec = sudo poweroff
 menu-2-0-padding = 3
 
@@ -225,7 +226,7 @@ type = internal/mpd
 
 host = 127.0.0.1
 port = 6600
-password = 
+password =
 
 ; Seconds to sleep between progressbar/song timer sync
 ; Default: 1
