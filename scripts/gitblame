@@ -148,6 +148,7 @@ from colored import fg, bg, attr
 from datetime import datetime
 
 import subprocess
+import re
 from sys import argv
 
 
@@ -156,15 +157,19 @@ def lines_starting_with(all_lines, prefix):
     stripped = [l.split(prefix, 1)[1] for l in grepped]
     return stripped
 
+def lines_by_regex(all_lines, regex):
+    return [l for l in all_lines if re.match(regex,l)]
 
 def main():
     cmd.extend(argv[1:])
 
     gbl_raw = (subprocess.run(cmd, stdout=subprocess.PIPE).stdout
                .decode().split('\n'))
+    commit_by_line = [ch[:8] for ch in lines_by_regex(gbl_raw, '^[a-z0-9]{32,}')]
     code = '\n'.join(lines_starting_with(gbl_raw, '\t'))
     authors_by_line = lines_starting_with(gbl_raw, 'author ')
     times_by_line = lines_starting_with(gbl_raw, 'author-time ')
+    commit_hash_unique = sorted(list(set(commit_by_line)))
     authors_unique = sorted(list(set(authors_by_line)))
 
     formatter = Terminal256Formatter(style=base16_tomorrow_dark)
@@ -181,15 +186,19 @@ def main():
 
     author_color_codes = {author: color_codes.pop(0)
                           for author in authors_unique}
+    commit_color_codes = {hash: color_codes.pop(0)
+                          for hash in commit_hash_unique}
 
     pretty_blame = []
     for i in range(min(len(authors_by_line), len(highlighted))):
         author = authors_by_line[i]
+        commit = commit_by_line[i]
         time = datetime.fromtimestamp(int(times_by_line[i]))
         pretty_blame.append((
             time,
             author_color_codes[author] + author,
-            fg('dark_gray') + str(i),
+            commit_color_codes[commit] + commit,
+            fg('wheat_1') + str(i),
             attr('reset') + highlighted[i]
         ))
 
