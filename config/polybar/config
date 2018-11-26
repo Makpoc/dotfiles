@@ -1,5 +1,5 @@
 [bar/top]
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:eDP1}
 width = 100%
 height = 22
 offset-x = 0
@@ -25,7 +25,7 @@ font-2 = siji:pixelsize=10;0
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = battery volume date powermenu
+modules-right = updates-arch backlight battery volume date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -83,7 +83,7 @@ label-empty-padding = 4
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:120:...%
+label = %title:0:80:...%
 label-padding = 4
 
 [module/date]
@@ -116,6 +116,14 @@ type = custom/text
 content = 	
 content-foreground = #00000000
 content-background = #55000000
+
+; https://github.com/x70b1/polybar-scripts/tree/master/polybar-scripts/updates-arch
+[module/updates-arch]
+type = custom/script
+exec = ~/.config/polybar/scripts/updates-arch.sh
+format =  <label>
+format-padding = 3
+interval = 600
 
 [module/battery]
 type = internal/battery
@@ -151,19 +159,20 @@ animation-charging-4 = 
 animation-charging-framerate = 750
 
 [module/backlight]
-type = internal/backlight
+type = internal/xbacklight
 
 card = intel_backlight
 enable-scroll = true
 
-format = <ramp> <label>
+;format = <ramp> <label>
+format =  <label>
 label = %percentage%
 
-ramp-0 = 🌕
-ramp-1 = 🌔
-ramp-2 = 🌓
-ramp-3 = 🌒
-ramp-4 = 🌑
+;ramp-0 = 
+;ramp-1 = 
+;ramp-2 = 
+;ramp-3 = 
+;ramp-4 = 
 
 [module/volume]
 type = internal/volume

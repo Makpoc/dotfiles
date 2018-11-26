@@ -183,11 +183,17 @@ def main():
             if bg_color:
                 color_code += bg(bg_color)
             color_codes.append(color_code)
+            print("Color added: " + fg_color)
 
-    author_color_codes = {author: color_codes.pop(0)
-                          for author in authors_unique}
-    commit_color_codes = {hash: color_codes.pop(0)
-                          for hash in commit_hash_unique}
+    author_color_codes = {}
+    for i, author in enumerate(authors_unique):
+        author_color = fg(i+5)
+        author_color_codes[author] = author_color
+
+    commit_color_codes = {}
+    for i, hash in enumerate(commit_hash_unique):
+        hash_color = fg(i+5) + bg(255-(i+5))
+        commit_color_codes[hash] = hash_color
 
     pretty_blame = []
     for i in range(min(len(authors_by_line), len(highlighted))):
@@ -196,8 +202,8 @@ def main():
         time = datetime.fromtimestamp(int(times_by_line[i]))
         pretty_blame.append((
             time,
-            author_color_codes[author] + author,
-            commit_color_codes[commit] + commit,
+            author_color_codes[author] + author + attr('reset'),
+            commit_color_codes[commit] + commit + attr('reset'),
             fg('wheat_1') + str(i),
             attr('reset') + highlighted[i]
         ))

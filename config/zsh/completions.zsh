@@ -4,7 +4,7 @@ zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path "$HOME/.cache/zsh"
 
 zstyle ':completion:*' menu select=2 # tab completion menu with two+ candidates
-zstyle ':completion:::::' completer _complete _history 
+zstyle ':completion:::::' completer _complete _history
 #zstyle ':completion:*:approximate:*' max-errors 2
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
@@ -16,7 +16,7 @@ zstyle ':completion:*:processes-names' command "ps -eo cmd= | sed 's:\([^ ]*\).*
 zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:&' list-dirs-first true
 
-# Tests: 
+# Tests:
 zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:options' auto-description '%d'

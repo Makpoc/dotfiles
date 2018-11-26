@@ -99,3 +99,5 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 export CDPATH=$CDPATH:$GOPATH/src
 source /usr/share/nvm/init-nvm.sh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

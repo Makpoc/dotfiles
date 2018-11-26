@@ -85,8 +85,8 @@ filetype off
 call vundle#rc()
 
 Plugin 'Valloric/YouCompleteMe'
-"Plugin 'fatih/vim-go'
-"Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plugin 'fatih/vim-go'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'myusuf3/numbers.vim'
 Plugin 'Auto-Pairs'
 Plugin 'moll/vim-node'
@@ -103,6 +103,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-fugitive'
 
 " Themes
 Plugin 'altercation/vim-colors-solarized'
@@ -305,7 +306,7 @@ augroup END
 
 " vim-powerline:
 set laststatus=2   " Always show the statusline
-"set encoding=utf-8 " Necessary to show Unicode glyphs
+set encoding=utf-8 " Necessary to show Unicode glyphs
 let g:Powerline_symbols='unicode'
 
 " airline settings
@@ -374,6 +375,9 @@ let g:tern_map_keys=1
 
 " ctrlp
 let g:ctrlp_custom_ignore = 'node_modules'
+
+" vim-go
+let g:go_fmt_command = "goimports"
 
 " others
 " save work on focus lost (silent to not complain if the buffer is untitled)

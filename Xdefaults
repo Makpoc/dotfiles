@@ -108,7 +108,7 @@ URxvt*color5:                  S_magenta
 URxvt*color6:                  S_cyan
 URxvt*color7:                  S_base2
 URxvt*color9:                  S_orange
-URxvt*color8:                  S_base03
+URxvt*color8:                  S_base1
 URxvt*color10:                 S_base01
 URxvt*color11:                 S_base00
 URxvt*color12:                 S_base0
