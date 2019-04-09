@@ -7,7 +7,8 @@ URxvt*scrollBar:            false
 URxvt*termName:             rxvt-unicode-256color
 !URxvt*depth:                32
 !URxvt*font:                 xft:DejaVu Sans Mono for Powerline:pixelsize=11
-URxvt.font:                  xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true
+URxvt.font:                  xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true,\
+                             xft:DejaVu Sans Mono:pixelsize=14
 !URxvt.font:                 xft:Fira Code:pixelsize=12,style=regular:antialias=true:hinting=true
 !URxvt*letterSpace:          -4
 URxvt*urgentOnBell:         true

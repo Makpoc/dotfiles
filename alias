@@ -62,6 +62,9 @@ alias vi=vim
 # livestreamer
 alias livestreamer='livestreamer --player mpv'
 
+alias xcopy='xsel --clipboard --input'
+alias xpaste='xsel --clipboard --output'
+
 # work
 alias ws='cd ~/workspace/'
 

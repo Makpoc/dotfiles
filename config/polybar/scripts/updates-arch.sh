@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# checkupdates provided by pacman-contrib
 updates=$(checkupdates | wc -l)
 
 if [ "$updates" -gt 0 ]; then
