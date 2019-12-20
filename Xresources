@@ -1,0 +1,23 @@
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-font,vtwheel
+URxvt.url-select.launcher:  firefox
+URxvt.url-select.underline: true
+
+! Use Meta-u to activate URL selection mode, then use the following keys:
+! j/k: Select next downward/upward URL (also with arrow keys)
+! g/G: Select first/last URL (also with home/end key)
+! o/Return: Open selected URL in browser, Return: deactivate afterwards
+! y: Copy (yank) selected URL and deactivate selection mode
+! q/Escape: Deactivate URL selection mode
+
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+
+! clear terminal scrollback
+URxvt.keysym.Control-l:     command:\033c
+
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+! pacman -S xcursor-comix
+Xcursor.theme: ComixCursors-White

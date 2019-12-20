@@ -175,3 +175,8 @@ bind -m vi-insert "\C-l":clear-screen
 
 # https://forum.golangbridge.org/t/your-best-shell-aliases/1335 @robpike
 #export CDPATH=.:$HOME:$GOROOT/src:$GOPATH/src/github.com:$GOPATH/src/github.com/makpoc
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+complete -C /usr/bin/mcli mcli

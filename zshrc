@@ -2,12 +2,11 @@
 test -s ~/.alias && . ~/.alias || true
 
 export EDITOR=vim
-export PATH=$PATH:/opt/java/bin:~/bin:~/scripts
+export PATH=~/bin:~/scripts:$PATH:/opt/java/bin
 
 export GOPATH=~/git/go
 export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
-
+export PATH=$GOBIN:$PATH
 
 fpath=(~/.config/zsh/comp/ $fpath)
 
@@ -30,12 +29,15 @@ setopt autocd               # 'cd /usr/' is now '/usr/'
 WORDCHARS='*?_-~=&!%^90'  # what kill word shoud delete
 
 # History
-setopt hist_ignore_all_dups inc_append_history
 HISTFILE=~/.zhistory
-HISTSIZE=1000
+HISTSIZE=99999
+SAVEHIST=99999
 HISTTIMEFORMAT="[%d/%m/%Y - %H:%M:%S] "
-SAVEHIST=1000
-setopt appendhistory sharehistory
+setopt hist_ignore_all_dups
+setopt inc_append_history
+setopt extended_history
+setopt append_history
+setopt share_history
 
 unsetopt beep
 bindkey -e
@@ -86,7 +88,7 @@ ssh_info() {
 }
 
 # Change the prompt character color if the last command had a nonzero exit code
-PS1="%(?.%{$fg[white]%}.%{$fg[red]%})%(!.#.┌─)%{$reset_color%}[%{$fg[yellow]%}%n%{$reset_color%}::%{$fg[white]%}%m%{$reset_color%}][%{$fg[green]%}%~%u%{$reset_color%}]
+PS1="%(?.%{$fg[white]%}.%{$fg[red]%})%(!.#.┌─)%{$reset_color%}[%{$fg[yellow]%}%n%{$reset_color%}::%{$fg[white]%}%m%{$reset_color%}][$fg[yellow]%T%{$reset_color%}][%{$fg[green]%}%~%u%{$reset_color%}]
 %(?.%{$fg[white]%}.%{$fg[red]%})%(!.#.└─╼)%{$reset_color%} "
 
 # load all zsh additional config files
@@ -95,7 +97,40 @@ zshconf="$HOME/.config/zsh"
 
 # Experimental:
 # first: pacman -S zsh-syntax-highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export CDPATH=$CDPATH:$GOPATH/src
-source /usr/share/nvm/init-nvm.sh
+[[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
+
+# Grab them from here:
+# https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins
+plugins=(
+  colored-man-pages
+  z
+)
+for plugin in $plugins; do
+  source "$HOME/.config/zsh/plugins/$plugin.zsh"
+done
+
+# exported by gnome-keyring-daemon
+ssh_socket_file=/run/user/$UID/keyring/.ssh
+if [[ ! $SSH_AUTH_SOCK && -e $ssh_socket_file ]]; then
+  export SSH_AUTH_SOCK=$ssh_socket_file
+fi
+
+[[ -f ~/.workrc ]] && source ~/.workrc
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/mcli mcli

@@ -85,29 +85,37 @@ filetype off
 call vundle#rc()
 
 Plugin 'Valloric/YouCompleteMe'
-"Plugin 'fatih/vim-go'
-"Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plugin 'fatih/vim-go'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'Auto-Pairs'
-Plugin 'moll/vim-node'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Syntastic'
-Plugin 'mtscout6/syntastic-local-eslint.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'crusoexia/vim-javascript-lib'
-Plugin 'ternjs/tern_for_vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
+Plugin 'ap/vim-css-color'
+Plugin 'tpope/vim-fugitive'
+
+" Experimentals
+Plugin 'zxqfl/tabnine-vim'
 
 " Themes
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'christophermca/meta5'
 Plugin 'jacoborus/tender.vim'
+Plugin 'Railscasts-Theme-GUIand256color'
+Plugin 'dracula/vim'
+Plugin 'morhetz/gruvbox'
+Plugin 'sickill/vim-monokai'
 
 filetype plugin indent on
 
+"Colorscheme
+set background=dark
+"colorscheme solarized
+" from here: https://github.com/jpo/vim-railscasts-theme
+colorscheme gruvbox
+"colorscheme solarized8_high
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -140,8 +148,8 @@ set nobackup
 " Control character highlighting
 " Visible after :set list
 set list
-"set listchars=tab:»\ ,eol:↵
-set listchars=tab:»\ ,trail:.,extends:#,space:·,eol:¬
+"set listchars=tab:»\ ,trail:.,extends:#,space:·,eol:¬
+set listchars=tab:»\ ,trail:.,extends:#
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -152,12 +160,9 @@ set wildignore=*.swp,*.bak,*.pyc,*.class,*~
 "set autochdir
 set completeopt=menu,menuone
 
-"Colorscheme
-set background=dark
-"colorscheme solarized
-" from here: https://github.com/jpo/vim-railscasts-theme
-" colorscheme railscasts
-colorscheme tender
+" To disable highlighting of special chars, defined in listchars (see above)
+" https://stackoverflow.com/a/39661448/2616179
+highlight SpecialKey ctermbg=NONE guibg=NONE
 
 " <Leader> remap
 let mapleader = ","
@@ -301,7 +306,7 @@ augroup END
 
 " vim-powerline:
 set laststatus=2   " Always show the statusline
-"set encoding=utf-8 " Necessary to show Unicode glyphs
+set encoding=utf-8 " Necessary to show Unicode glyphs
 let g:Powerline_symbols='unicode'
 
 " airline settings
@@ -374,3 +379,8 @@ nnoremap <F4> :buffers<CR>:buffer<Space>
 
 " vim-gitgutter
 nmap <Leader>hv <Plug>GitGutterPreviewHunk
+
+" vim-go with gopls:
+" https://github.com/golang/go/wiki/gopls
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
