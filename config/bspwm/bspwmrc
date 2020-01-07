@@ -1,7 +1,6 @@
 #!/bin/bash
-
-bspc monitor VGA1 -d www term1 term2 term3 chat mail feeds term8 term9 
-bspc monitor HDMI1 -d I II III IV V
+bspc monitor $MONITOR1 -d web code code code code code mail feeds chat music
+bspc monitor $MONITOR2 -d code code code code code code code code code
 
 # Configure both monitors at the same time
 desktop_config() {
@@ -11,23 +10,13 @@ desktop_config() {
     done
 }
 
-#for monitor in $(bspc query -M); do
-#    bspc monitor $monitor \
-#            -d {term,web,java,python,chat,vi,vii,viii,ix,x}
-#done
-
-#if [ -e "$BSPWM_TREE" ] ; then
-#    bspc restore -T "$BSPWM_TREE" -H "$BSPWM_HISTORY" -S "$BSPWM_STACK"
-#    rm "$BSPWM_TREE" "$BSPWM_HISTORY" "$BSPWM_STACK"
-#fi
 if [ -e "$BSPWM_DUMP" ] ; then
     bspc wm -l $BSPWM_DUMP
     rm $BSPWM_DUMP
 fi
 
-
-#bspc monitor VGA1 - dzen2 is there
-bspc config -m VGA1 top_padding 14
+# add padding for polybar
+bspc config -m $MONITOR1 top_padding 14
 
 # Visual options (for all monitors)
 desktop_config split_ratio 0.50
@@ -48,50 +37,39 @@ desktop_config urgent_border_color "#d70000"
 desktop_config focused_locked_border_color "#cb4b16"
 desktop_config normal_frame_opacity 0.0
 desktop_config focused_frame_opacity 0.2
-
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
 bspc config click_to_focus true
+
 # Rules
+bspc rule -a Gimp state=floating follow=no
 bspc rule -a Skype desktop=chat
+bspc rule -a skypeforlinux desktop=chat
 bspc rule -a Pidgin desktop=chat
-bspc rule -a Viber desktop=chat
-bspc rule -a Firefox desktop=www
+bspc rule -a ViberPC desktop=chat
+bspc rule -a discord desktop=chat
+bspc rule -a Firefox desktop=web
 bspc rule -a Thunderbird desktop=mail
 bspc rule -a Liferea desktop=feeds
-bspc rule -a burp-StartBurp state=floating desktop=term8 center=true
-bspc rule -a jetbrains-pycharm monitor=HDMI1 desktop=II
-bspc rule -a jetbrains-idea monitor=HDMI1 desktop=I
-bspc rule -a htop monitor=HDMI1 desktop=V
-bspc rule -a spotify monitor=HDMI1 desktop=V
-# used in left click on pacman (dzen2)
-bspc rule -a pacup state=floating center=true
-bspc rule -a zathura state=tiled
-bspc rule -a libreoffice state=tiled
+bspc rule -a spotify desktop=music
 
-#desktop_config border_width 2
-#desktop_config window_gap 4
-#
-#bspc config split_ratio 0.52
-#bspc config borderless_monocle true
-#bspc config gapless_monocle true
+bspc config external_rules_command ~/.config/bspwm/rules/popups.sh
 
-if [ $(pgrep -cx panel) -gt 1 ] ; then
-    pkill panel
-fi
-
-/home/makpoc/.config/bspwm/panel/panel dzen2 &
-
-# every icon takes around 20 pixels
-# moved to panel/panel script
-#trayer --edge top --align right --height 16 --alpha 0 --tint 0x34322E --transparent true --widthtype pixel --expand false --monitor primary --width 129 &
+$HOME/.config/polybar/launch.sh &
 
 # Autorun on startup
-unclutter -idle 5 -noevents -root &
-fbxkb & # icon
-volumeicon & # icon
-skype & # icon
-pidgin & # icon
-liferea & # icon
-thunderbird &
-firefox &
-shutter & # icon
-spotify &
+dunst &
+nm-applet &
+blueman-applet &
+sh -c '$HOME/.fehbg' &
+sh -c '$HOME/scripts/wallpaper_focus.sh' &
+#fbxkb & # icon
+#unclutter -idle 5 -noevents -root &
+#volumeicon & # icon
+#skype & # icon
+#pidgin & # icon
+#liferea & # icon
+#thunderbird &
+#firefox &
+#shutter & # icon
+#spotify &

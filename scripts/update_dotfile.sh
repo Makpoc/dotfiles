@@ -1,4 +1,9 @@
 #!/bin/bash
+set -x
+
+function abs_path () {
+  readlink -f $1
+}
 
 function echoerr () {
   echo "$@" >&2
@@ -18,8 +23,9 @@ function backup_file() {
   echoerr "File backup stored at ${bckp_file}"
 }
 
-file=$1
-dotfile=$2
+# readlink is part of coreutils
+file=`abs_path $1`
+dotfile=`abs_path $2`
 
 if [[ -z $file  ]] || [[ -z $dotfile ]]; then
   echoerr "usage: $(basename $0) <file> <dotfile>"
@@ -37,3 +43,4 @@ check_exit $?
 echoerr ls -l $file
 echo "$file" >> "$dotfile"
 update_dotfile.sh
+
