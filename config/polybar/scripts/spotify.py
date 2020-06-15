@@ -120,5 +120,3 @@ except Exception as e:
         print('')
     else:
         print(e)
-
-/home/makpoc/.config/polybar/scripts/spotify.py

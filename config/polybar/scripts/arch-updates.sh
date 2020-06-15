@@ -23,4 +23,3 @@ else
 fi
 
 echo "$color%{F-} $updates"
-/home/makpoc/.config/polybar/scripts/arch-updates.sh

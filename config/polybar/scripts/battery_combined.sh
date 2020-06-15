@@ -88,5 +88,3 @@ case "$1" in
         done
         ;;
 esac
-
-/home/makpoc/.config/polybar/scripts/battery_combined.sh

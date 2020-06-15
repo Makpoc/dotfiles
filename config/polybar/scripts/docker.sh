@@ -12,4 +12,3 @@ if [ $running_containers == 0 ]; then
 fi
 
 echo %{F#e5e600}%{F-} $running_containers
-/home/makpoc/.config/polybar/scripts/docker.sh
