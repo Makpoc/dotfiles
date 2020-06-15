@@ -180,3 +180,4 @@ bind -m vi-insert "\C-l":clear-screen
 export PATH="$PATH:$HOME/.rvm/bin"
 
 complete -C /usr/bin/mcli mcli
+

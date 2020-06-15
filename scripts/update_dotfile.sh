@@ -1,7 +1,6 @@
 #!/bin/bash
-set -x
-
 function abs_path () {
+  # readlink is part of coreutils
   readlink -f $1
 }
 
@@ -23,7 +22,6 @@ function backup_file() {
   echoerr "File backup stored at ${bckp_file}"
 }
 
-# readlink is part of coreutils
 file=`abs_path $1`
 dotfile=`abs_path $2`
 
@@ -42,5 +40,4 @@ check_exit $?
 
 echoerr ls -l $file
 echo "$file" >> "$dotfile"
-update_dotfile.sh
 

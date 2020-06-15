@@ -7,7 +7,6 @@ function set_background() {
 }
 
 bspc subscribe all | while read line; do
-  set -x
   FOCUSED_MONITOR=$(bspc query -M -m --names)
   if [[ -z $FOCUSED_MONITOR ]]; then
     if [[ -f "$HOME/.wallpaper/$MONITOR" ]]; then
