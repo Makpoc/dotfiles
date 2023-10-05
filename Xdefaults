@@ -8,9 +8,15 @@ URxvt.font:                  xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialia
                              xft:Source\ Code\ Pro:pixelsize=14:antialias=true:hinting=true,\
                              xft:Font Awesome 5 Brands:size=9:antialias=true:style:solid,\
                              xft:DejaVu Sans Mono for Powerline:pixelsize=11,\
-                             xft:DejaVu Sans Mono, xft:Noto Emoji
+                             xft:DejaVu Sans Mono,\
+                             xft:Noto Emoji,\
+                             xft:FreeSerif:style=Regular,\
+                             xft:xft:unifont:style=Medium:antialias=false
+!FreeSerif is from community/ttf-freefont
+!unifont is from the AUR, ttf-unifont
+
 !URxvt.font:                 xft:Fira Code:pixelsize=12,style=regular:antialias=true:hinting=true
-!URxvt*letterSpace:          -4
+URxvt*letterSpace:          -1
 URxvt*urgentOnBell:         true
 !URxvt*background:           [100]#1b1d1e
 !>---- Extensions ----<!

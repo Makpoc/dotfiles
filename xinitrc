@@ -4,7 +4,7 @@
 #eval $(ssh-agent -s)
 
 # swaps 8 and 9 - the back and forward buttons on x7 mouse
-xmodmap -e "pointer = 1 2 3 4 5 6 7 9 8 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24" &
+#xmodmap -e "pointer = 1 2 3 4 5 6 7 9 8 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24" &
 
 # https://unix.stackexchange.com/questions/265503/how-do-i-fix-no-such-secret-collection-at-path-for-gnome-keyring-and-arch-l/295652#295652
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
@@ -28,7 +28,8 @@ xset fp rehash
 # disable pc speaker
 xset -b
 
-#(xrandr --output HDMI1 --auto --right-of eDP1 --rotate right)
+#(xrandr --output HDMI1 --auto --right-of eDP1 --rotate left)
+#(xrandr --output HDMI1 --auto --above eDP1 --rotate normal)
 MONITOR1=$(xrandr --listactivemonitors | command egrep -i -o "edp[-]?[0-9]+" | head -1)
 [[ -z $MONITOR1 ]] && MONITOR1="eDP1"
 
@@ -75,5 +76,8 @@ urxvtd -q -o -f
 
 # set a dark theme for GTK based apps
 export GTK_THEME=Adwaita-dark
+
+#nohup ~/Downloads/iris/Iris.sh &
+redshift -P -O 3700 &
 
 exec bspwm

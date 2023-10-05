@@ -51,7 +51,7 @@ bspc rule -a discord desktop=chat
 bspc rule -a Firefox desktop=web
 bspc rule -a Thunderbird desktop=mail
 bspc rule -a Liferea desktop=feeds
-bspc rule -a spotify desktop=music
+bspc rule -a Spotify desktop=music
 
 bspc config external_rules_command ~/.config/bspwm/rules/popups.sh
 
@@ -61,8 +61,9 @@ $HOME/.config/polybar/launch.sh &
 dunst &
 nm-applet &
 blueman-applet &
-sh -c '$HOME/.fehbg' &
-sh -c '$HOME/scripts/wallpaper_focus.sh' &
+#sh -c '$HOME/.fehbg' &
+#sh -c '$HOME/scripts/wallpaper_focus.sh' &
+nitrogen --restore &
 #fbxkb & # icon
 #unclutter -idle 5 -noevents -root &
 #volumeicon & # icon

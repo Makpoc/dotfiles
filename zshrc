@@ -4,8 +4,8 @@ test -s ~/.alias && . ~/.alias || true
 export EDITOR=vim
 export PATH=~/bin:~/scripts:$PATH:/opt/java/bin
 
-export GOPATH=~/git/go
-export GOBIN=$GOPATH/bin
+#export GOPATH=~/git/go
+export GOBIN=$HOME/git/go/bin
 export PATH=$GOBIN:$PATH
 
 fpath=(~/.config/zsh/comp/ $fpath)
@@ -60,6 +60,7 @@ autoload -Uz colors && colors
 # key bindings for terminal emulator
 if [ "$TERM" =~ rxvt ]; then
     bindkey "\e[3~"   delete-char           # delete
+#    bindkey '\e[7~'   beginning-of-line     # home and ctrl+home
     bindkey '\e[1~'   beginning-of-line     # home and ctrl+home
     bindkey '\e[4~'   end-of-line           # end and ctrl+end
     bindkey '^H'      backward-kill-word    # ctrl+backspace
@@ -132,5 +133,9 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
+#export CLOUDSDK_PYTHON=python2
+
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/mcli mcli
+
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True

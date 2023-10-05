@@ -84,7 +84,6 @@ filetype off
 
 call vundle#rc()
 
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'Auto-Pairs'

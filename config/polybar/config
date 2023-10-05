@@ -1,34 +1,53 @@
+; vi: ft=dosini
+
+[colors]
+red = #ff1a1a
+green = #2eb82e
+orange = #ff9900
+yellow = #e5e600
+grey = #5a5b5c
+dark_grey = #222222
+blue = #649fec
+white = #eeeeee
+brown = #774F38
+dark_blue = #0b1d3a
+
+background = ${self.dark_blue}
+
 [bar/top]
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR1:eDP-1}
 width = 100%
-height = 22 
+height = 22
 offset-x = 0
 offset-y = 1
-;bottom = true
 
-background = #5a000000
-foreground = #eee
+background = ${colors.background}
+foreground = ${colors.white}
 
 underline-size = 1
-underline-color = #aaa
+underline-color = ${colors.grey}
 
 spacing = 0
-padding-left = 2 
+padding-left = 1
 padding-right = 0
-module-margin-left = 0 
+module-margin-left = 0
 module-margin-right = 0
 
-font-0 = FontAwesome:size=10;0
-font-1 = Noto Sans:pixelsize=10;0
-font-2 = siji:pixelsize=10;0
+font-0 = Font Awesome 5 Free:size=9:antialias=true:style=solid;1
+font-1 = Font Awesome 6 Free:size=9:antialias=true:style=solid;0
+font-2 = Font Awesome 6 Brands:size=9:antialias=true:style=solid;1
+font-3 = Noto Sans:pixelsize=10;0
+font-4 = siji:pixelsize=10;0
+; used as fixed-size font (e.g. clock and title)
+font-5 = Source Code Pro:pixelsize=9:antialias=true
 
-modules-left = bspwm 
-modules-center = xwindow
-modules-right = battery volume date powermenu
+modules-left = bspwm sep xwindow
+modules-center =
+modules-right = fs-root sep battery-internal sep pulse-volume sep backlight sep temperature sep arch-updates sep docker sep spotify sep date sep
 
 tray-position = right
-tray-padding = 2
-tray-background = #66333333
+tray-padding = 0
+tray-background = ${colors.background}
 
 wm-restack = bspwm
 
@@ -51,39 +70,42 @@ fuzzy-match = true
 pin-workspaces = false
 
 ws-icon-0 = web;
-ws-icon-1 = code;
+ws-icon-1 = code;
 ws-icon-2 = term;
-ws-icon-3 = chat;
-ws-icon-4 = code;
-ws-icon-5 = music;
-ws-icon-6 = feed;
-ws-icon-7 = mail;
+ws-icon-3 = chat-work;
+ws-icon-4 = chat-personal;
+ws-icon-5 = code;
+ws-icon-6 = music;
+ws-icon-7 = feed;
+ws-icon-8 = mail;
+ws-icon-9 = chat;
 ws-icon-default = 
 
-format = <label-monitor> <label-state> <label-mode>
+format = <label-monitor>%{F#737373}|%{F-} <label-state>
 
-label-monitor =  %name%
+label-monitor = |  %name%
 
 label-focused = %icon%
-label-focused-underline= #699
-label-focused-padding = 4
+label-focused-underline= ${colors.blue}
+label-focused-padding = 1
 
 label-occupied = %icon%
-label-occupied-padding = 4
+label-occupied-padding = 1
 
 label-urgent = %icon%
-label-urgent-foreground = #f30
-label-urgent-underline = #f30
-label-urgent-padding = 4
+label-urgent-foreground = ${colors.red}
+label-urgent-underline = ${colors.red}
+label-urgent-padding = 1
 
 label-empty = %icon%
-label-empty-foreground = #44ffffff
-label-empty-padding = 4
+label-empty-foreground = ${colors.grey}
+label-empty-padding = 1
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:120:...%
-label-padding = 4
+label = %title:0:80:...%
+label-font = 6
+label-padding = 1
 
 [module/date]
 type = internal/date
@@ -93,167 +115,285 @@ interval = 1.0
 
 ; See "man date" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
-date = %a %b %d, 
+date = %a, %b %d
 
 ; Optional time format
 time = %H:%M:%S
 
 ; if `date-alt` or `time-alt` is defined, clicking
 ; the module will toggle between formats
-date-alt = %A, %d %B %Y
-time-alt = %H:%M:%S
+;date-alt = %a %b %d
+;time-alt = %H:%M:%S
+date-alt = +%FT%T%Z
 
 label = %date% %time%
-format =   <label>
-;format-background = #ddffffff
-format-background = #88000000
-;format-foreground = #333
-format-padding = 3
+; fixed-size
+label-font = 6
 
-[module/padding]
+; grey clock + label
+format = %{F#5a5b5c}%{F-} <label>
+
+[module/sep]
+; dummy module to trigger the separator
 type = custom/text
-content = 	 
-content-foreground = #00000000
-content-background = #55000000
+content = %{F#5a5b5c}|%{F-}
+content-padding = 0
 
-[module/battery]
+[module/arch-updates]
+type = custom/script
+exec = /home/makpoc/.config/polybar/scripts/arch-updates.sh
+interval = 600
+
+[module/docker]
+type = custom/script
+exec = /home/makpoc/.config/polybar/scripts/docker.sh
+interval = 10
+
+;[module/battery-combined]
+;type = custom/script
+;exec = /home/makpoc/.config/polybar/scripts/battery_combined.sh
+;tail = true
+[module/battery-base]
 type = internal/battery
 
-full-at = 99
+full-at = 97
 
-battery = BAT0
 adapter = AC0
 
-poll-interval = 5
+poll-interval = 60
 
-format-charging = <animation-charging>  <label-charging>
-format-discharging = <ramp-capacity>  <label-discharging>
-format-full = <ramp-capacity>  <label-full>
-label-charging = %percentage%
-label-discharging = %percentage%
-label-full = %percentage%
-format-charging-padding = 3
-format-discharging-padding = 3
-format-full-padding = 3
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = %percentage%%
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0-underline = ${colors.red}
+ramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-1-foreground = ${colors.orange}
+ramp-capacity-2-foreground = ${colors.orange}
+ramp-capacity-3-foreground = ${colors.yellow}
+ramp-capacity-4-foreground = ${colors.yellow}
+ramp-capacity-5-foreground = ${colors.yellow}
+ramp-capacity-6-foreground = ${colors.green}
+ramp-capacity-7-foreground = ${colors.green}
+ramp-capacity-8-foreground = ${colors.green}
+ramp-capacity-9-foreground = ${colors.green}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 750
+bat_04 = 
+bat_14 = 
+bat_24 = 
+bat_34 = 
+bat_44 = 
+
+ramp-capacity-0 = ${self.bat_04}
+ramp-capacity-1 = ${self.bat_14}
+ramp-capacity-2 = ${self.bat_14}
+ramp-capacity-3 = ${self.bat_24}
+ramp-capacity-4 = ${self.bat_24}
+ramp-capacity-5 = ${self.bat_24}
+ramp-capacity-6 = ${self.bat_34}
+ramp-capacity-7 = ${self.bat_34}
+ramp-capacity-8 = ${self.bat_44}
+ramp-capacity-9 = ${self.bat_44}
+
+[module/battery-internal]
+inherit = module/battery-base
+
+battery = BAT0
+
+format-charging = in-%{F#649fec}%{F-} <label-charging>
+format-discharging = in-<ramp-capacity> <label-discharging>
+format-full = in-<ramp-capacity> <label-full>
+
+[module/battery-external]
+inherit = module/battery-base
+
+battery = BAT1
+
+format-charging = ex-%{F#649fec}%{F-} <label-charging>
+format-discharging = ex-<ramp-capacity> <label-discharging>
+format-full = ex-<ramp-capacity> <label-full>
+
+[module/temperature]
+type = internal/temperature
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3
+
+; Thermal zone to use
+; To list all the zone types, run 
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+; thermal-zone = 0
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+hwmon-path = /sys/devices/virtual/thermal/thermal_zone0/hwmon1/temp1_input
+
+; Threshold temperature to display warning label (in degrees celsius)
+; Default: 80
+warn-temperature = 60
+
+; Whether or not to show units next to the temperature tokens (°C, °F)
+; Default: true
+units = false
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+format = <ramp> <label>
+
+; Available tags:
+;   <label-warn> (default)
+;   <ramp>
+format-warn = <ramp> <label-warn>
+
+; Available tokens:
+;   %temperature% (deprecated)
+;   %temperature-c%   (default, temperature in °C)
+;   %temperature-f%   (temperature in °F)
+label = %temperature-c%°
+
+; Available tokens:
+;   %temperature% (deprecated)
+;   %temperature-c%   (default, temperature in °C)
+;   %temperature-f%   (temperature in °F)
+label-warn = %temperature-c%
+label-warn-underline = ${colors.red}
+
+temp_04 = 
+temp_14 = 
+temp_24 = 
+temp_34 = 
+temp_44 = 
+
+; Requires the <ramp> tag
+; The icon selection will range from 0 to `warn-temperature`,
+; temperatures above `warn-temperature` will use the last icon
+; and temperatures below 0°C will use `ramp-0`
+ramp-0 = ${self.temp_04}
+ramp-0-foreground = ${colors.green}
+ramp-1 = ${self.temp_04}
+ramp-1-foreground = ${colors.green}
+ramp-2 = ${self.temp_04}
+ramp-2-foreground = ${colors.green}
+ramp-3 = ${self.temp_04}
+ramp-3-foreground = ${colors.green}
+ramp-4 = ${self.temp_04}
+ramp-4-foreground = ${colors.green}
+ramp-5 = ${self.temp_04}
+ramp-5-foreground = ${colors.green}
+ramp-6 = ${self.temp_04}
+ramp-6-foreground = ${colors.green}
+ramp-7 = ${self.temp_04}
+ramp-7-foreground = ${colors.green}
+ramp-8 = ${self.temp_04}
+ramp-8-foreground = ${colors.green}
+ramp-9 = ${self.temp_04}
+ramp-9-foreground = ${colors.green}
+ramp-10 = ${self.temp_04}
+ramp-10-foreground = ${colors.green}
+ramp-11 = ${self.temp_04}
+ramp-11-foreground = ${colors.green}
+ramp-12 = ${self.temp_04}
+ramp-12-foreground = ${colors.green}
+ramp-13 = ${self.temp_04}
+ramp-13-foreground = ${colors.green}
+; 43-
+ramp-14 = ${self.temp_14}
+ramp-14-foreground = ${colors.green}
+; 45-
+ramp-15 = ${self.temp_14}
+ramp-15-foreground = ${colors.green}
+; 48-
+ramp-16 = ${self.temp_24}
+ramp-16-foreground = ${colors.yellow}
+ramp-17 = ${self.temp_34}
+ramp-17-foreground = ${colors.orange}
+ramp-18 = ${self.temp_34}
+ramp-18-foreground = ${colors.red}
+ramp-19 = ${self.temp_44}
+ramp-19-foreground = ${colors.red}
 
 [module/backlight]
-type = internal/backlight
+type = internal/xbacklight
 
-card = intel_backlight
+;card = intel_backlight
 enable-scroll = true
 
 format = <ramp> <label>
-label = %percentage%
+ramp-4-underline = ${colors.red}
+label = %percentage%%
 
-ramp-0 = 🌕
-ramp-1 = 🌔
-ramp-2 = 🌓
-ramp-3 = 🌒
-ramp-4 = 🌑
+ramp-0-foreground = ${colors.green}
+ramp-1-foreground = ${colors.green}
+ramp-2-foreground = ${colors.yellow}
+ramp-3-foreground = ${colors.orange}
+ramp-4-foreground = ${colors.red}
 
-[module/volume]
-type = internal/volume
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 =  !
 
-format-volume = <ramp-volume>  <label-volume>
-format-muted = <label-muted>
-label-volume = %percentage%
-label-muted =   muted
-label-muted-foreground = #aaa
-format-volume-padding = 3
-format-muted-padding = 3
+[module/pulse-volume]
+type = internal/pulseaudio
+
+; A6 = double click
+; https://github.com/polybar/polybar/wiki/Formatting#action-a
+format-volume = %{A6:pavucontrol:}<ramp-volume> <label-volume>%{A}
+format-muted = %{A6:pavucontrol:}<label-muted>%{A}
+label-volume = %percentage%%
+label-muted =  muted
+label-muted-foreground = ${colors.grey}
+
+ramp-volume-0-foreground = ${colors.green}
+ramp-volume-1-foreground = ${colors.green}
+ramp-volume-2-foreground = ${colors.orange}
+ramp-volume-3-foreground = ${colors.red}
 
 ramp-volume-0 = 
 ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
 ramp-headphones-0 = 
 
-;[module/spotify]
-;type = custom/script
-;
-;exec = /home/gamehelp16/Documents/np
-;interval = 1
-;
-;format = <label>   
-;;format-background = #dd00c6e0
-;;format-foreground = #fff
-;;format-padding = 4
-;
-;label = %output%
-
-[module/powermenu]
-type = custom/menu
-
-label-open =   
-;label-open-background = #dd0000
-;label-open-foreground = #fff
-label-close = cancel
-;label-close-background = #dd0000
-;label-close-foreground = #fff
-label-open-padding = 4 
-label-close-padding = 3 
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-menu-0-0-padding = 3
-menu-0-1-padding = 3
-
-menu-1-0 = reboot?  
-menu-1-0-exec = sudo reboot
-menu-1-0-padding = 3
-
-menu-2-0 = power off?  
-menu-2-0-exec = sudo poweroff
-menu-2-0-padding = 3
-
-[module/mpd]
-type = internal/mpd
-
-host = 127.0.0.1
-port = 6600
-password = 
-
-; Seconds to sleep between progressbar/song timer sync
-; Default: 1
-interval = 2
-
-; Available tags:
-;   <label-song> (default)
-;   <label-time>
-;   <bar-progress>
-;   <toggle> - gets replaced with <icon-(pause|play)>
-;   <toggle-stop> - gets replaced with <icon-(stop|play)>
-;   <icon-random>
-;   <icon-repeat>
-;   <icon-repeatone>
-;   <icon-prev>
-;   <icon-stop>
-;   <icon-play>
-;   <icon-pause>
-;   <icon-next>
-;   <icon-seekb>
-;   <icon-seekf>
-format-online =    <label-song>
-
-; Available tokens:
-;   %artist%
-;   %album%
-;   %date%
-;   %title%
-; Default: %artist% - %title%
-label-song = %title%
+[module/spotify]
 format-online-padding = 3
+type = custom/script
+interval = 1
+;format-prefix = " : " prefixed with a note icon
+;different icons for play/stop:
+;exec = python ~/.config/polybar/scripts/spotify.py -p '%{F#2eb82e}%{F-},%{F#ff1a1a}%{F-}' -f '{play_pause}'
+;same icon (note) - different colors
+exec = python ~/.config/polybar/scripts/spotify.py -p '%{F#2eb82e}%{F-},%{F#ff1a1a}%{F-}' -f '{play_pause}'
+format-padding = 1
+
+[module/fs-base]
+type = internal/fs
+
+; Seconds to sleep between updates
+; Default: 30
+interval = 3600
+
+; Display fixed precision values
+; Default: false
+fixed-values = true
+
+;piechart:  
+
+[module/fs-home]
+inherit = module/fs-base
+
+mount-0 = /home
+label-mounted =  %percentage_used%%
+
+[module/fs-root]
+inherit = module/fs-base
+
+mount-0 = /
+label-mounted =  %percentage_used%%

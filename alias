@@ -52,3 +52,8 @@ alias livestreamer='livestreamer --player mpv'
 # docker
 alias dstop='docker stop $(docker ps -q)'
 alias dc='docker-compose'
+alias dcbuild='docker-compose up -d --build --no-deps'
+alias dctail='docker-compose logs --tail=20 -f'
+
+# go
+alias gv="echo 'go mod tidy && go mod vendor' && go mod tidy && go mod vendor"
