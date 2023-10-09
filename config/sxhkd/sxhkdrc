@@ -61,8 +61,8 @@ super + {_,shift + }c
 #	bspc node -s biggest
 
 # focus/move the focused window to the given direction - lazy style
-super + {_,shift + }{Left,Down,Up,Right}
-	bspc node -{f,s} {west,south,north,east}
+#super + {_,shift + }{Left,Down,Up,Right}
+#	bspc node -{f,s} {west,south,north,east}
 
 # focus/move the focused window to the given direction - vim style
 super + {_,shift + }{h,j,k,l}
@@ -79,6 +79,10 @@ super + bracket{left,right}
 # move window to west/east monitor
 super + shift + bracket{left,right}
     bspc node --to-monitor {west,east} -f
+
+# move entire desktop to west/east monitor
+super + shift + {less,greater}
+    bspc desktop --to-monitor {west,east} -f
 
 # Goes back and forward in over the occupied desktops on the current Monitor
 super + {p,n}
@@ -109,7 +113,7 @@ super + ctrl + {1-9}
 # Select the desktop on the current monitor
 # if we a re-selecting the current desktop - focus the last selected
 super + {1-9,0}
-    bspc desktop focused:^{1-9,0} -f
+    bspc desktop focused:^{1-9,10} -f
 ## The following does not work with zsh ;(
 #    desktop_n='{1-9,0}'; \
 #    if [ `bspc query -D -d focused` == `bspc query -D -d focused:^{1-9,0}` ] ; then \
@@ -137,7 +141,7 @@ super + Return
 
 # Start launcher (dmenu-tools-git)
 super + d
-	dmenu_run_recent -b
+	$HOME/scripts/dmenu/dmenu_run_recent -b
 
 # Start finder for ~/git/st
 super + shift + d
@@ -155,16 +159,18 @@ ctrl + alt + l
 # giblib error: couldn't grab keyboard:Resource temporarily unavailable
 Print
     sleep 0.2; \
-    scrot -s $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
+    scrot -s $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'; \
+    notify-send --urgency=low --hint=string:x-dunst-stack-tag:scrot 'Screenshot taken' 'Selection'
 
 control + Print
-    scrot $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
+    scrot $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'; \
+    notify-send --urgency=low --hint=string:x-dunst-stack-tag:scrot 'Screenshot taken' 'Fullscreen'
 
 ## MEDIA - MPD
 # Pause/Resume MPD playback (using Pause/Break)
 #Pause
 #    mpc toggle
-#    
+#
 ## Next song (xev shows pagedown as Next)
 #super + Next
 #    mpc next
@@ -175,23 +181,25 @@ control + Print
 
 ## MEDIA - Spotify
 # AUR - playerctl
-Pause 
-    playerctl play-pause
+super + {Right,Left,space}
+    playerctl {next,previous,play-pause}
 
-super + Next
-    playerctl next
-
-super + Prior
-    playerctl previous 
+{XF86AudioNext,XF86AudioPrev,XF86AudioPlay}
+    playerctl {next,previous,play-pause}
 
 ## MEDIA - ALSA
-super + Pause
-    amixer set Master toggle
+# mute
+XF86AudioMute
+    amixer -q sset Master toggle 
 
-# Volume down 
-super + shift + Next
-    amixer set Master 1-
+# Volume up/down
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+    amixer -q sset Master 1%{+ on,-}
 
-# Volume up
-super + shift + Prior
-    amixer set Master 1+
+# Volume up/down
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+    xbacklight -{inc,dec} 5
+
+# Volume up/down
+#super + shift + {plus,minus}
+#    amixer set Master {1+,1-}
